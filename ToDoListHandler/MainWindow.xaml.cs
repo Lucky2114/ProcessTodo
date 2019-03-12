@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.OleDb;
-using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 using ToDoListHandler.Classes;
 using ToDoListHandler.Classes.JSON;
 
@@ -50,7 +50,6 @@ namespace ToDoListHandler
         private void updateGrid()
         {
             this.dataTable = data_UserInterface.updateDataTable();
-            
         }
 
         private void saveGrid()
@@ -59,21 +58,26 @@ namespace ToDoListHandler
             List<TodoListClass> rows = new List<TodoListClass>();
             DataRowCollection r = dataTable.Rows;
 
-
             for (int i = 0; i < r.Count; i++)
             {
                 TodoListClass todoListClass = new TodoListClass();
-                todoListClass.processFullPath = r[i][0].ToString();
+                try
+                {
+                    todoListClass.status = (bool)r[i][0];
+                } catch
+                {
+                    todoListClass.status = false;
+                }
                 todoListClass.todoItem = r[i][1].ToString();
                 rows.Add(todoListClass);
             }
-            
+
             data_Handler.saveJsonObject(rows, this.jsonPath);
         }
 
         private void initializeGrid()
         {
-            dataTable.Columns.Add("Process", typeof(string));
+            dataTable.Columns.Add("Status", typeof(bool));
             dataTable.Columns.Add("Item", typeof(string));
 
             dataGrid_todo.DataContext = dataTable.DefaultView;
@@ -112,19 +116,21 @@ namespace ToDoListHandler
 
         private void Rectangle_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            App.Current.MainWindow.DragMove();
+            try
+            {
+                App.Current.MainWindow.DragMove();
+            } catch
+            {
+                //Rechte Maustaste
+            }
         }
 
         private void button_maximize_Click(object sender, RoutedEventArgs e)
         {
             if (App.Current.MainWindow.WindowState == WindowState.Maximized)
-            {
                 App.Current.MainWindow.WindowState = WindowState.Normal;
-            }
             else if (App.Current.MainWindow.WindowState == WindowState.Normal)
-            {
                 App.Current.MainWindow.WindowState = WindowState.Maximized;
-            }
         }
 
         private void button_close_Click(object sender, RoutedEventArgs e)
@@ -137,5 +143,51 @@ namespace ToDoListHandler
             App.Current.MainWindow.WindowState = WindowState.Minimized;
         }
 
+        private void todoList_mainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            dataGrid_todo.Columns[0].Width = DataGridLength.Auto;
+
+        }
+
+
+        private void dataGrid_todo_GotFocus(object sender, RoutedEventArgs e)
+        {
+            // Lookup for the source to be DataGridCell
+            if (e.OriginalSource.GetType() == typeof(DataGridCell))
+            {
+                // Starts the Edit on the row;
+                DataGrid grd = (DataGrid)sender;
+                grd.BeginEdit(e);
+
+                Control control = GetFirstChildByType<Control>(e.OriginalSource as DataGridCell);
+                if (control != null)
+                {
+                    control.Focus();
+                }
+            }
+        }
+
+
+        private T GetFirstChildByType<T>(DependencyObject prop) where T : DependencyObject
+        {
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(prop); i++)
+            {
+                DependencyObject child = VisualTreeHelper.GetChild((prop), i) as DependencyObject;
+                if (child == null)
+                    continue;
+
+                T castedProp = child as T;
+                if (castedProp != null)
+                    return castedProp;
+
+                castedProp = GetFirstChildByType<T>(child);
+
+                if (castedProp != null)
+                    return castedProp;
+            }
+            return null;
+        }
+
+        
     }
 }

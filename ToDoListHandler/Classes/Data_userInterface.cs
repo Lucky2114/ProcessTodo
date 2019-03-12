@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using ToDoListHandler.Classes.JSON;
 
 namespace ToDoListHandler.Classes
@@ -29,8 +30,9 @@ namespace ToDoListHandler.Classes
             {
                 foreach (var item in obj)
                 {
+
                     var tRow = dataTable.NewRow();
-                    tRow["Process"] = item.processFullPath;
+                    tRow["Status"] = item.status;                            //item.processFullPath;
                     tRow["Item"] = item.todoItem;
                     dataTable.Rows.Add(tRow);
                 }

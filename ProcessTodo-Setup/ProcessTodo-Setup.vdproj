@@ -87,12 +87,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_F837F57ADFEC4D2F8F486C7536E5A4CF"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_48E8FB15995C4B0FB69ABB91A37B3E63"
         "MsmSig" = "8:_UNDEFINED"
@@ -424,26 +418,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F837F57ADFEC4D2F8F486C7536E5A4CF"
-            {
-            "SourcePath" = "8:..\\ProcessTodo\\Content\\icon_manga_todolists.ico"
-            "TargetName" = "8:icon_manga_todolists.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_46CBEBF3080D4CF6BE054643A5FD8277"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
         }

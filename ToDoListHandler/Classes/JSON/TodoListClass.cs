@@ -8,7 +8,7 @@ namespace ToDoListHandler.Classes.JSON
 {
     class TodoListClass
     {
-        public string processFullPath { get; set; }
+        public bool status { get; set; }
         public string todoItem { get; set; }
     }
 }
