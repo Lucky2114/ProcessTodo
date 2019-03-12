@@ -10,7 +10,6 @@
         CaptionHeight="0"
         ResizeBorderThickness="5" />
     </WindowChrome.WindowChrome>
-
     <Grid>
         <DataGrid x:Name="dataGrid_todo" Margin="10,59,10,43"
                   ItemsSource="{Binding}" 
@@ -41,7 +40,7 @@
                     <Setter Property="FontSize" Value="20"/>
                 </Style>
 
-              
+
 
             </DataGrid.Resources>
 
@@ -55,7 +54,7 @@
         </DataGrid>
 
 
-        <Button Content="Save" Margin="10,0,10,10" RenderTransformOrigin="0.933,0.526" Click="Button_Click" Background="{x:Null}" BorderBrush="White" Foreground="White" VerticalAlignment="Bottom" Height="28" Style="{DynamicResource ButtonStyle_Flat_Dark}"/>
+        <Button Content="Save" Margin="10,0,116,10" RenderTransformOrigin="0.933,0.526" Click="Button_Click" Background="{x:Null}" BorderBrush="White" Foreground="White" VerticalAlignment="Bottom" Height="28" Style="{DynamicResource ButtonStyle_Flat_Dark}"/>
         <Label x:Name="label_todoList_title" Content="Label" HorizontalAlignment="Left" Margin="10,29,0,0" Foreground="White" VerticalAlignment="Top"/>
         <Grid Height="24" VerticalAlignment="Top">
             <Rectangle Fill="#FF161616" Height="24" Stroke="#FF161616" VerticalAlignment="Top" MouseDown="Rectangle_MouseDown"/>
@@ -87,6 +86,8 @@
                 </Button.Background>
             </Button>
         </Grid>
+        <Button x:Name="button_delete_checked" Content="Delete Checked" Margin="298,0,10,10" RenderTransformOrigin="0.933,0.526" Background="{x:Null}" BorderBrush="White" Foreground="White" VerticalAlignment="Bottom" Height="28" Style="{DynamicResource ButtonStyle_Flat_Dark}" Click="button_delete_checked_Click" HorizontalAlignment="Right"/>
+
 
 
 

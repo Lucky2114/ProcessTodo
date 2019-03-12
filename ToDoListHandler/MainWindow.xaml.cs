@@ -188,6 +188,27 @@ namespace ToDoListHandler
             return null;
         }
 
-        
+        private void button_delete_checked_Click(object sender, RoutedEventArgs e)
+        {
+            List<DataRow> rowsToDelete = new List<DataRow>();
+            foreach (DataRow item in dataTable.Rows)
+            {
+                try
+                {
+                    if ((bool)item[0])
+                    {
+                        rowsToDelete.Add(item);
+                    }
+                } catch
+                {
+                    //No conversion possible
+                }
+            }
+
+            foreach (var item in rowsToDelete)
+            {
+                dataTable.Rows.Remove(item);
+            }
+        }
     }
 }
