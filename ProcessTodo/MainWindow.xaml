@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProcessTodo"
         mc:Ignorable="d"
-        Title="Process Todo" Height="236.15" Width="425" Background="#FF1E1E1E" FontFamily="Century Gothic" MinWidth="425" MinHeight="380" WindowStyle="None" Icon="Content/to-do.png">
+        Title="Process Todo" Height="236.15" Width="425" Background="#FF1E1E1E" FontFamily="Century Gothic" MinWidth="425" MinHeight="380" WindowStyle="None">
 
     <WindowChrome.WindowChrome>
         <WindowChrome 

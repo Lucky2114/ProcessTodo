@@ -63,6 +63,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_A56C74929F0B40A68F1FD1D39F122B4A"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_F0A533DD31FE288EFA0B76834468F4B9"
         "OwnerKey" = "8:_48E8FB15995C4B0FB69ABB91A37B3E63"
         "MsmSig" = "8:_UNDEFINED"
@@ -81,8 +87,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F0A533DD31FE288EFA0B76834468F4B9"
+        "MsmKey" = "8:_F837F57ADFEC4D2F8F486C7536E5A4CF"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -121,6 +127,12 @@
         "OwnerKey" = "8:_4F132235C4DA5433D4FCD35CDD4AD898"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_F0A533DD31FE288EFA0B76834468F4B9"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -139,6 +151,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -155,6 +183,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -339,6 +375,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A56C74929F0B40A68F1FD1D39F122B4A"
+            {
+            "SourcePath" = "8:..\\ProcessTodo\\Content\\icon_manage_todolists.ico"
+            "TargetName" = "8:icon_manage_todolists.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_46CBEBF3080D4CF6BE054643A5FD8277"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F0A533DD31FE288EFA0B76834468F4B9"
             {
             "AssemblyRegister" = "3:1"
@@ -368,6 +424,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F837F57ADFEC4D2F8F486C7536E5A4CF"
+            {
+            "SourcePath" = "8:..\\ProcessTodo\\Content\\icon_manga_todolists.ico"
+            "TargetName" = "8:icon_manga_todolists.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_46CBEBF3080D4CF6BE054643A5FD8277"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
         }
@@ -438,7 +514,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:ProcessTodo-Setup"
         "ProductCode" = "8:{BB1C492F-7461-47DD-A087-1C2A495AEBE4}"
-        "PackageCode" = "8:{5EA0C298-C721-4A25-99D9-FA6DC9EF3F69}"
+        "PackageCode" = "8:{A5BDF628-BAC4-48EF-B151-CDFF783A2012}"
         "UpgradeCode" = "8:{B4DA6B24-2BE5-4B88-BAE6-F769C7A53135}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -569,7 +645,7 @@
             "Target" = "8:_48E8FB15995C4B0FB69ABB91A37B3E63"
             "Folder" = "8:_C99C26B2F8D74EC9AF42CB4250382C56"
             "WorkingFolder" = "8:_46CBEBF3080D4CF6BE054643A5FD8277"
-            "Icon" = "8:"
+            "Icon" = "8:_A56C74929F0B40A68F1FD1D39F122B4A"
             "Feature" = "8:"
             }
         }
