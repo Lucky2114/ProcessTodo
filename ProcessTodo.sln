@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessTodo", "ProcessTodo\ProcessTodo.csproj", "{DB329725-111E-4954-9C67-7650D065A3EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoListHandler", "ToDoListHandler\ToDoListHandler.csproj", "{9D4FD77B-78C3-439C-B6CC-8F14700DD9D4}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ProcessTodo-Setup", "ProcessTodo-Setup\ProcessTodo-Setup.vdproj", "{D4AD787E-5BFE-45F2-8A91-703C9440ED78}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB329725-111E-4954-9C67-7650D065A3EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB329725-111E-4954-9C67-7650D065A3EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB329725-111E-4954-9C67-7650D065A3EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB329725-111E-4954-9C67-7650D065A3EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D4FD77B-78C3-439C-B6CC-8F14700DD9D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D4FD77B-78C3-439C-B6CC-8F14700DD9D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D4FD77B-78C3-439C-B6CC-8F14700DD9D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D4FD77B-78C3-439C-B6CC-8F14700DD9D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4AD787E-5BFE-45F2-8A91-703C9440ED78}.Debug|Any CPU.ActiveCfg = Debug
+		{D4AD787E-5BFE-45F2-8A91-703C9440ED78}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {63B033BB-E4D7-4892-BB56-4D4E9E460E1F}
+	EndGlobalSection
+EndGlobal
