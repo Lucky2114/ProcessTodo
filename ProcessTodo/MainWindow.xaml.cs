@@ -35,11 +35,26 @@ namespace ProcessTodo
         public MainWindow()
         {
             InitializeComponent();
-            t_handler = new TaskSched_Handler();
 
+            check_auditpol();
+
+            t_handler = new TaskSched_Handler();
             updateList();
         }
 
+        private void check_auditpol()
+        {
+            AuditPol_HND auditPol_HND = new AuditPol_HND();
+
+            if (!auditPol_HND.isTrackingPolicySet())
+            {
+                new window_auditpol().ShowDialog();
+            } else
+            {
+                MessageBox.Show("Auditpol already set!");
+            }
+               
+        }
 
         private void updateList()
         {

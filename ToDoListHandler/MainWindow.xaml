@@ -31,6 +31,7 @@
                 <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" Color="#FF1E1E1E"/>
                 <SolidColorBrush x:Key="{x:Static SystemColors.ControlTextBrushKey}" Color="White"/>
 
+
                 <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FF161616" />
                     <Setter Property="TextBlock.Foreground" Value="White"/>

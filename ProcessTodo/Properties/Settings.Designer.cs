@@ -34,5 +34,17 @@ namespace ProcessTodo.Properties {
                 this["todolist_handler_path"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool auditpol_set {
+            get {
+                return ((bool)(this["auditpol_set"]));
+            }
+            set {
+                this["auditpol_set"] = value;
+            }
+        }
     }
 }

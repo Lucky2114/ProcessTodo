@@ -1,0 +1,115 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+
+namespace ProcessTodo.Classes
+{
+    class AuditPol_HND
+    {
+        private string polCategory = "";
+        private string polSubcategory = "";
+        public bool isTrackingPolicySet()
+        {
+            bool res = false;
+            if (setPolKeys())
+            {
+                Process pProcess = new Process();
+                pProcess.StartInfo.FileName = "auditpol.exe";
+                pProcess.StartInfo.Arguments = $"/get /subcategory:\"{this.polSubcategory}\" /r";
+                pProcess.StartInfo.UseShellExecute = false;
+                pProcess.StartInfo.CreateNoWindow = true;
+                pProcess.StartInfo.RedirectStandardOutput = true;
+                pProcess.StartInfo.WorkingDirectory = Environment.SystemDirectory;
+                pProcess.Start();
+                string rawOutput = pProcess.StandardOutput.ReadToEnd();
+
+
+                var tmp = rawOutput.Split('\n')[1].Split(',');
+                string rRes = tmp[tmp.Length - 2];
+
+                //TODO: Use better check. (Space is bad)
+                if (!rRes.Contains(" "))
+                    res = true;
+            }
+
+            return res;
+        }
+
+        private bool setPolKeys()
+        {
+            bool res = false;
+
+            //TODO: Add if. Only do below when 2 global strings are empty
+
+            Process pProcess = new Process();
+            pProcess.StartInfo.FileName = "auditpol.exe";
+            pProcess.StartInfo.Arguments = "/get /category:*";
+            pProcess.StartInfo.UseShellExecute = false;
+            pProcess.StartInfo.RedirectStandardOutput = true;
+            pProcess.StartInfo.WorkingDirectory = Environment.SystemDirectory;
+            pProcess.Start();
+            string rawOutput = pProcess.StandardOutput.ReadToEnd();
+            pProcess.WaitForExit();
+
+            string[] split1 = rawOutput.Split("\n".ToCharArray());
+
+            try
+            {
+                string catTemp = split1[39].Split('\\')[0].Replace("\r", "");
+                string subCatTemp = split1[40].Split(' ')[2];
+
+                this.polCategory = catTemp;
+                this.polSubcategory = subCatTemp;
+                res = true;
+            }
+            catch
+            {
+                MessageBox.Show("Error in Policy indexing");
+            }
+            return res;
+        }
+
+        public bool setTrackingPolicy(bool enable)
+        {
+            bool res = false;
+
+            
+
+            if (setPolKeys() && !this.polSubcategory.Equals("") && !this.polSubcategory.Equals(""))
+            {
+                string whatToSet = "enable";
+                if (enable)
+                {
+                    whatToSet = "enable";
+                }
+                else
+                {
+                    whatToSet = "disable";
+                }
+
+                //Try to update the policy
+                Process pProcessSet = new Process();
+                pProcessSet.StartInfo.FileName = "auditpol.exe";
+                pProcessSet.StartInfo.Arguments = $"/set /category:\"{this.polCategory}\" /subcategory:\"{this.polSubcategory}\" /success:{whatToSet}";
+                pProcessSet.StartInfo.UseShellExecute = false;
+                pProcessSet.StartInfo.RedirectStandardOutput = true;
+                pProcessSet.StartInfo.RedirectStandardError = true;
+                pProcessSet.StartInfo.WorkingDirectory = Environment.SystemDirectory;
+                pProcessSet.Start();
+                string strOutputSet = pProcessSet.StandardOutput.ReadToEnd();
+                pProcessSet.WaitForExit();
+                string error = pProcessSet.StandardError.ReadToEnd();
+
+                if (error.Equals(""))
+                    res = true;
+            }
+
+            return res;
+        }
+
+    }
+}
