@@ -21,15 +21,16 @@
                   HorizontalGridLinesBrush="White"
                   VerticalGridLinesBrush="White"
                   ColumnWidth="100*"
-                  HeadersVisibility="Column" GotFocus="dataGrid_todo_GotFocus">
+                  HeadersVisibility="Column">
 
 
 
             <DataGrid.Resources>
 
                 <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#FF2E2E2E"/>
-                <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" Color="#FF1E1E1E"/>
+                <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" Color="#FF2E2E2E"/>
                 <SolidColorBrush x:Key="{x:Static SystemColors.ControlTextBrushKey}" Color="White"/>
+                <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="#FF1E1E1E"/>
 
 
                 <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
@@ -39,6 +40,13 @@
                     <Setter Property="BorderThickness" Value="0,0,1,0"/>
                     <Setter Property="Padding" Value="3,0"/>
                     <Setter Property="FontSize" Value="20"/>
+                </Style>
+                <Style TargetType="DataGridCell">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="IsEditing" Value="True" />
+                        </Trigger>
+                    </Style.Triggers>
                 </Style>
 
 
