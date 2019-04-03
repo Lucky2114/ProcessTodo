@@ -17,7 +17,7 @@ namespace ToDoListHandler
     /// </summary>
     public partial class MainWindow : Window
     {
-        private string callingProcess;
+        private string callingProcess = "";
 
         private Data_userInterface data_UserInterface;
         private Data_handler data_Handler;
@@ -64,7 +64,8 @@ namespace ToDoListHandler
                 try
                 {
                     todoListClass.status = (bool)r[i][0];
-                } catch
+                }
+                catch
                 {
                     todoListClass.status = false;
                 }
@@ -88,8 +89,14 @@ namespace ToDoListHandler
             string callingProcessClean = callingProcess.Replace("\\", "").Replace(":", "");
             string tmpFileName = $"{callingProcessClean}.json";
             string res = "";
-            string workingDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string[] files = Directory.GetFiles(workingDirectory, tmpFileName, SearchOption.AllDirectories);
+
+            string jsonFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\processtodo_todolists\\";
+
+            if (!Directory.Exists(jsonFolderPath))
+                Directory.CreateDirectory(jsonFolderPath);
+           
+
+            string[] files = Directory.GetFiles(jsonFolderPath, tmpFileName, SearchOption.AllDirectories);
 
             if (files.Length > 0)
             {
@@ -97,14 +104,20 @@ namespace ToDoListHandler
             }
             else
             {
-                //No jsonFile yet. Create a new one:
-                Directory.CreateDirectory(workingDirectory + "Data");
-                res = workingDirectory + $"Data\\{tmpFileName}";
+                try
+                {
+                    res = jsonFolderPath + tmpFileName;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
+
             return res;
         }
 
-        private void dataGrid_todo_RowEditEnding(object sender, System.Windows.Controls.DataGridRowEditEndingEventArgs e)
+        private void dataGrid_todo_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
         {
             saveGrid();
         }
@@ -119,7 +132,8 @@ namespace ToDoListHandler
             try
             {
                 App.Current.MainWindow.DragMove();
-            } catch
+            }
+            catch
             {
                 //Rechte Maustaste
             }
@@ -161,7 +175,8 @@ namespace ToDoListHandler
                     {
                         rowsToDelete.Add(item);
                     }
-                } catch
+                }
+                catch
                 {
                     //No conversion possible
                 }

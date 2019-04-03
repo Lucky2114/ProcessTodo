@@ -48,9 +48,11 @@ namespace ProcessTodo
 
             if (!auditPol_HND.isTrackingPolicySet())
             {
+                //Need to set auditpol!
                 new window_auditpol().ShowDialog();
             } else
             {
+                //Great!
                 MessageBox.Show("Auditpol already set!");
             }
                

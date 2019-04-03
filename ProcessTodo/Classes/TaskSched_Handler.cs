@@ -44,8 +44,6 @@ namespace ProcessTodo.Classes
                     res = true;
 
                 //Now everytime "processPath" is opend, the ToDoListHandler is called with "processPath" as parameter.
-
-                //
             }
             return res;
         }

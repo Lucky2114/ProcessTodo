@@ -19,7 +19,7 @@ namespace ProcessTodo.Classes
             {
                 Process pProcess = new Process();
                 pProcess.StartInfo.FileName = "auditpol.exe";
-                pProcess.StartInfo.Arguments = $"/get /subcategory:\"{this.polSubcategory}\" /r";
+                pProcess.StartInfo.Arguments = $"/get /subcategory:\"{polSubcategory}\" /r";
                 pProcess.StartInfo.UseShellExecute = false;
                 pProcess.StartInfo.CreateNoWindow = true;
                 pProcess.StartInfo.RedirectStandardOutput = true;
@@ -42,9 +42,9 @@ namespace ProcessTodo.Classes
         private bool setPolKeys()
         {
             bool res = false;
-
-            //TODO: Add if. Only do below when 2 global strings are empty
-
+            
+            if (polCategory.Length > 1 && polSubcategory.Length > 1) 
+                return true;
             Process pProcess = new Process();
             pProcess.StartInfo.FileName = "auditpol.exe";
             pProcess.StartInfo.Arguments = "/get /category:*";
@@ -82,14 +82,9 @@ namespace ProcessTodo.Classes
             if (setPolKeys() && !this.polSubcategory.Equals("") && !this.polSubcategory.Equals(""))
             {
                 string whatToSet = "enable";
-                if (enable)
-                {
-                    whatToSet = "enable";
-                }
-                else
-                {
-                    whatToSet = "disable";
-                }
+
+                //If enable == true then set whatToSet = true, else whatToSet = false
+                whatToSet = enable ? "enable" : "disable";
 
                 //Try to update the policy
                 Process pProcessSet = new Process();

@@ -16,8 +16,8 @@ namespace ProcessTodo.Classes
             string tmp = name.Replace("_", "").Replace("[PTD] - ", "") + ".json";
 
             MessageBox.Show(tmp);
-
-            string workingDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            
+            string workingDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\processtodo_todolists\\";
             
             string[] files = Directory.GetFiles(workingDirectory, tmp, SearchOption.AllDirectories);
             if (files.Length > 0)

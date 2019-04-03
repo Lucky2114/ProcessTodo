@@ -184,6 +184,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
             }
         }
     }
@@ -488,15 +496,15 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:ProcessTodo-Setup"
         "ProductCode" = "8:{BB1C492F-7461-47DD-A087-1C2A495AEBE4}"
-        "PackageCode" = "8:{A5BDF628-BAC4-48EF-B151-CDFF783A2012}"
+        "PackageCode" = "8:{CB818CD4-DD2B-4C15-A9C5-D81FAC54B70C}"
         "UpgradeCode" = "8:{B4DA6B24-2BE5-4B88-BAE6-F769C7A53135}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:Kevin M."
+        "Manufacturer" = "8:KWIN"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
         "Title" = "8:ProcessTodo Installation"
