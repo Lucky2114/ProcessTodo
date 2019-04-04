@@ -4,66 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Todo-List" Height="200" Width="425" Background="#FF1E1E1E" FontFamily="Century Gothic" MinWidth="420" MinHeight="375" BorderBrush="Transparent" WindowStyle="None" Icon="Content/to-do.png" Loaded="todoList_mainWindow_Loaded">
+        Title="Todo-List" Height="305" Width="329" Background="#FF1E1E1E" FontFamily="Century Gothic" MinWidth="420" MinHeight="375" BorderBrush="Transparent" WindowStyle="None" Icon="Content/to-do.png" Loaded="todoList_mainWindow_Loaded">
     <WindowChrome.WindowChrome>
         <WindowChrome 
         CaptionHeight="0"
         ResizeBorderThickness="5" />
     </WindowChrome.WindowChrome>
     <Grid>
-        <DataGrid x:Name="dataGrid_todo" Margin="10,59,10,43"
-                  ItemsSource="{Binding}" 
-                  RowEditEnding="dataGrid_todo_RowEditEnding" 
-                  Background="{x:Null}" 
-                  BorderBrush="White" Foreground="White" 
-                  FontFamily="Century Gothic"
-                  FontSize="20"
-                  HorizontalGridLinesBrush="White"
-                  VerticalGridLinesBrush="White"
-                  ColumnWidth="100*"
-                  HeadersVisibility="Column">
 
 
-
-            <DataGrid.Resources>
-
-                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#FF2E2E2E"/>
-                <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" Color="#FF2E2E2E"/>
-                <SolidColorBrush x:Key="{x:Static SystemColors.ControlTextBrushKey}" Color="White"/>
-                <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="#FF1E1E1E"/>
-
-
-                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
-                    <Setter Property="Background" Value="#FF161616" />
-                    <Setter Property="TextBlock.Foreground" Value="White"/>
-                    <Setter Property="BorderBrush" Value="White"/>
-                    <Setter Property="BorderThickness" Value="0,0,1,0"/>
-                    <Setter Property="Padding" Value="3,0"/>
-                    <Setter Property="FontSize" Value="20"/>
-                </Style>
-                <Style TargetType="DataGridCell">
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="IsEditing" Value="True" />
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-
-
-
-            </DataGrid.Resources>
-
-
-            <DataGrid.RowStyle>
-                <Style TargetType="DataGridRow">
-                    <Setter Property="Background" Value="Transparent" />
-                    <Setter Property="BorderBrush" Value="White"/>
-                </Style>
-            </DataGrid.RowStyle>
-        </DataGrid>
-
-
-        <Button Content="Save" Margin="10,0,116,10" RenderTransformOrigin="0.933,0.526" Click="Button_Click" Background="{x:Null}" BorderBrush="White" Foreground="White" VerticalAlignment="Bottom" Height="28" Style="{DynamicResource ButtonStyle_Flat_Dark}"/>
+        <Button Content="Save" Margin="10,0,10,10" RenderTransformOrigin="0.933,0.526" Click="Button_Click" Background="{x:Null}" BorderBrush="White" Foreground="White" VerticalAlignment="Bottom" Height="28" Style="{DynamicResource ButtonStyle_Flat_Dark}"/>
         <Label x:Name="label_todoList_title" Content="Label" HorizontalAlignment="Left" Margin="10,29,0,0" Foreground="White" VerticalAlignment="Top"/>
         <Grid Height="24" VerticalAlignment="Top">
             <Rectangle Fill="#FF161616" Height="24" Stroke="#FF161616" VerticalAlignment="Top" MouseDown="Rectangle_MouseDown"/>
@@ -95,7 +45,13 @@
                 </Button.Background>
             </Button>
         </Grid>
-        <Button x:Name="button_delete_checked" Content="Delete Checked" Margin="298,0,10,10" RenderTransformOrigin="0.933,0.526" Background="{x:Null}" BorderBrush="White" Foreground="White" VerticalAlignment="Bottom" Height="28" Style="{DynamicResource ButtonStyle_Flat_Dark}" Click="button_delete_checked_Click" HorizontalAlignment="Right"/>
+        <RichTextBox x:Name="rich_textbox_1" Margin="10,54,10,48" Background="#FF2B2B2B" BorderBrush="White" Foreground="White" SelectionBrush="#FFAAAAAA">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text=""/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
 
 
 

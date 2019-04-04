@@ -6,41 +6,32 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using ToDoListHandler.Classes.JSON;
 
 namespace ToDoListHandler.Classes
 {
     class Data_userInterface
     {
-        private DataTable dataTable;
+        private RichTextBox richTextBox;
         private Data_handler data_Handler;
         private string jsonPath;
-        public Data_userInterface(DataTable dataTable, string jsonPath)
+        public Data_userInterface(RichTextBox richTextBox, string jsonPath)
         {
-            this.dataTable = dataTable;
+            this.richTextBox = richTextBox;
             this.jsonPath = jsonPath;
             this.data_Handler = new Data_handler();
         }
 
-        public DataTable updateDataTable()
+        public void updateDataTable()
         {
-            List<TodoListClass> obj = data_Handler.getJsonObject(this.jsonPath);
-
-            if (obj != null)
+            try
             {
-                foreach (var item in obj)
-                {
-
-                    var tRow = dataTable.NewRow();
-                    tRow["Status"] = item.status;                            //item.processFullPath;
-                    tRow["Item"] = item.todoItem;
-                    dataTable.Rows.Add(tRow);
-                }
-            } else
+                richTextBox.Document = data_Handler.getXmlObject(this.jsonPath).document;
+            } catch
             {
-                
+
             }
-            return dataTable;
         }
     }
 }

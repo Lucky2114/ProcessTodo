@@ -22,7 +22,7 @@ namespace ToDoListHandler
         private Data_userInterface data_UserInterface;
         private Data_handler data_Handler;
 
-        private string jsonPath;
+        private string XamlPath;
 
         private DataTable dataTable = new DataTable();
 
@@ -36,11 +36,12 @@ namespace ToDoListHandler
 
             InitializeComponent();
 
-            initializeGrid();
+            initializeTextBox();
 
-            this.jsonPath = findJsonfile();
+            this.XamlPath = findXamlfile();
             this.data_Handler = new Data_handler();
-            this.data_UserInterface = new Data_userInterface(dataTable, this.jsonPath);
+            //this.data_UserInterface = new Data_userInterface(dataTable, this.XamlPath);
+            this.data_UserInterface = new Data_userInterface(rich_textbox_1, this.XamlPath);
 
             label_todoList_title.Content = callingProcess;
 
@@ -49,54 +50,34 @@ namespace ToDoListHandler
 
         private void updateGrid()
         {
-            this.dataTable = data_UserInterface.updateDataTable();
+            data_UserInterface.updateDataTable();
         }
 
         private void saveGrid()
         {
-            //Get the List from the grid
-            List<TodoListClass> rows = new List<TodoListClass>();
-            DataRowCollection r = dataTable.Rows;
-
-            for (int i = 0; i < r.Count; i++)
-            {
-                TodoListClass todoListClass = new TodoListClass();
-                try
-                {
-                    todoListClass.status = (bool)r[i][0];
-                }
-                catch
-                {
-                    todoListClass.status = false;
-                }
-                todoListClass.todoItem = r[i][1].ToString();
-                rows.Add(todoListClass);
-            }
-
-            data_Handler.saveJsonObject(rows, this.jsonPath);
+            TodoListClass todoListClass = new TodoListClass();
+            todoListClass.document = rich_textbox_1.Document;
+            data_Handler.saveXamlObject(todoListClass, this.XamlPath);
         }
 
-        private void initializeGrid()
+        private void initializeTextBox()
         {
-            dataTable.Columns.Add("Status", typeof(bool));
-            dataTable.Columns.Add("Item", typeof(string));
 
-            dataGrid_todo.DataContext = dataTable.DefaultView;
         }
 
-        private string findJsonfile()
+        private string findXamlfile()
         {
             string callingProcessClean = callingProcess.Replace("\\", "").Replace(":", "");
-            string tmpFileName = $"{callingProcessClean}.json";
+            string tmpFileName = $"{callingProcessClean}.xaml";
             string res = "";
 
-            string jsonFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\processtodo_todolists\\";
+            string XamlFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\processtodo_todolists\\";
 
-            if (!Directory.Exists(jsonFolderPath))
-                Directory.CreateDirectory(jsonFolderPath);
-           
+            if (!Directory.Exists(XamlFolderPath))
+                Directory.CreateDirectory(XamlFolderPath);
 
-            string[] files = Directory.GetFiles(jsonFolderPath, tmpFileName, SearchOption.AllDirectories);
+
+            string[] files = Directory.GetFiles(XamlFolderPath, tmpFileName, SearchOption.AllDirectories);
 
             if (files.Length > 0)
             {
@@ -106,7 +87,7 @@ namespace ToDoListHandler
             {
                 try
                 {
-                    res = jsonFolderPath + tmpFileName;
+                    res = XamlFolderPath + tmpFileName;
                 }
                 catch (Exception ex)
                 {
@@ -117,10 +98,6 @@ namespace ToDoListHandler
             return res;
         }
 
-        private void dataGrid_todo_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
-        {
-            saveGrid();
-        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -149,6 +126,8 @@ namespace ToDoListHandler
 
         private void button_close_Click(object sender, RoutedEventArgs e)
         {
+            saveGrid();
+
             Environment.Exit(1);
         }
 
@@ -159,33 +138,9 @@ namespace ToDoListHandler
 
         private void todoList_mainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            dataGrid_todo.Columns[0].Width = DataGridLength.Auto;
 
         }
 
 
-        private void button_delete_checked_Click(object sender, RoutedEventArgs e)
-        {
-            List<DataRow> rowsToDelete = new List<DataRow>();
-            foreach (DataRow item in dataTable.Rows)
-            {
-                try
-                {
-                    if ((bool)item[0])
-                    {
-                        rowsToDelete.Add(item);
-                    }
-                }
-                catch
-                {
-                    //No conversion possible
-                }
-            }
-
-            foreach (var item in rowsToDelete)
-            {
-                dataTable.Rows.Remove(item);
-            }
-        }
     }
 }

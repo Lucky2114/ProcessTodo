@@ -85,7 +85,7 @@
     </Compile>
     <Compile Include="Classes\Data_handler.cs" />
     <Compile Include="Classes\Data_userInterface.cs" />
-    <Compile Include="Classes\JSON\TodoListClass.cs" />
+    <Compile Include="Classes\XAML\TodoListClass.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 
 namespace ToDoListHandler.Classes.JSON
 {
-    class TodoListClass
+    [Serializable()]
+    public class TodoListClass
     {
-        public bool status { get; set; }
-        public string todoItem { get; set; }
+        public FlowDocument document { get; set; }
     }
 }
