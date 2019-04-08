@@ -53,7 +53,7 @@ namespace ProcessTodo
             } else
             {
                 //Great!
-                MessageBox.Show("Auditpol already set!");
+                
             }
                
         }
@@ -91,7 +91,7 @@ namespace ProcessTodo
                 bool exec = t_handler.createTask(processToRegister, "[PTD] - " + processToRegister.Replace("\\", "_").Replace(":", "_"));
                 if (exec)
                 {
-                    MessageBox.Show("Task Sucessfully Registered");
+                    //Goood
                 } else
                 {
                     MessageBox.Show("Task Registering Failed.");
