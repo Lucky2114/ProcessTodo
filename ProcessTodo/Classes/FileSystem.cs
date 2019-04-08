@@ -13,7 +13,7 @@ namespace ProcessTodo.Classes
         public bool deleteTodoListFile(string name)
         {
             bool res = false;
-            string tmp = name.Replace("_", "").Replace("[PTD] - ", "") + ".json";
+            string tmp = name.Replace("_", "").Replace("[PTD] - ", "") + ".xaml";
 
             MessageBox.Show(tmp);
             

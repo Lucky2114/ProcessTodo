@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Todo-List" Height="305" Width="329" Background="#FF1E1E1E" FontFamily="Century Gothic" MinWidth="420" MinHeight="375" BorderBrush="Transparent" WindowStyle="None" Icon="Content/to-do.png" Loaded="todoList_mainWindow_Loaded">
+        Title="Todo-List" Height="305" Width="329" Background="#FF1E1E1E" FontFamily="Century Gothic" MinWidth="420" MinHeight="375" BorderBrush="Transparent" WindowStyle="None" Icon="Content/to-do.png" Closing="todoList_mainWindow_Closing">
     <WindowChrome.WindowChrome>
         <WindowChrome 
         CaptionHeight="0"

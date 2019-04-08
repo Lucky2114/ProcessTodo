@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
+﻿using System.IO;
 using System.Windows.Markup;
-using System.Xml;
 using ToDoListHandler.Classes.JSON;
 
 namespace ToDoListHandler.Classes
@@ -29,7 +23,6 @@ namespace ToDoListHandler.Classes
 
         public void saveXamlObject(TodoListClass obj, string XamlPath)
         {
-
             string xml = XamlWriter.Save(obj);
             File.WriteAllText(XamlPath, xml);
         }

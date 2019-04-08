@@ -23,7 +23,7 @@ namespace ToDoListHandler.Classes
             this.data_Handler = new Data_handler();
         }
 
-        public void updateDataTable()
+        public void updateTextBox()
         {
             try
             {

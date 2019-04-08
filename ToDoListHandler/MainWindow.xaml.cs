@@ -39,7 +39,7 @@ namespace ToDoListHandler
             initializeTextBox();
 
             this.XamlPath = findXamlfile();
-            this.data_Handler = new Data_handler();
+            this.data_Handler = new Data_handler(); 
             //this.data_UserInterface = new Data_userInterface(dataTable, this.XamlPath);
             this.data_UserInterface = new Data_userInterface(rich_textbox_1, this.XamlPath);
 
@@ -50,7 +50,7 @@ namespace ToDoListHandler
 
         private void updateGrid()
         {
-            data_UserInterface.updateDataTable();
+            data_UserInterface.updateTextBox();
         }
 
         private void saveGrid()
@@ -127,7 +127,6 @@ namespace ToDoListHandler
         private void button_close_Click(object sender, RoutedEventArgs e)
         {
             saveGrid();
-
             Environment.Exit(1);
         }
 
@@ -136,11 +135,9 @@ namespace ToDoListHandler
             App.Current.MainWindow.WindowState = WindowState.Minimized;
         }
 
-        private void todoList_mainWindow_Loaded(object sender, RoutedEventArgs e)
+        private void todoList_mainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-
+            saveGrid();
         }
-
-
     }
 }
