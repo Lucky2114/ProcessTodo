@@ -15,7 +15,7 @@ namespace ProcessTodo.Classes
         public bool isTrackingPolicySet()
         {
             bool res = false;
-            if (setPolKeys())
+            if (SetPolKeys())
             {
                 Process pProcess = new Process();
                 pProcess.StartInfo.FileName = "auditpol.exe";
@@ -39,7 +39,7 @@ namespace ProcessTodo.Classes
             return res;
         }
 
-        private bool setPolKeys()
+        private bool SetPolKeys()
         {
             bool res = false;
             
@@ -79,7 +79,7 @@ namespace ProcessTodo.Classes
 
             
 
-            if (setPolKeys() && !this.polSubcategory.Equals("") && !this.polSubcategory.Equals(""))
+            if (SetPolKeys() && !this.polSubcategory.Equals("") && !this.polSubcategory.Equals(""))
             {
                 string whatToSet = "enable";
 

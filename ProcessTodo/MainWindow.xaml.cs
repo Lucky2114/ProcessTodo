@@ -36,13 +36,13 @@ namespace ProcessTodo
         {
             InitializeComponent();
 
-            check_auditpol();
+            Check_auditpol();
 
             t_handler = new TaskSched_Handler();
-            updateList();
+            UpdateList();
         }
 
-        private void check_auditpol()
+        private void Check_auditpol()
         {
             AuditPol_HND auditPol_HND = new AuditPol_HND();
 
@@ -58,7 +58,7 @@ namespace ProcessTodo
                
         }
 
-        private void updateList()
+        private void UpdateList()
         {
             List<Microsoft.Win32.TaskScheduler.Task> tasks = t_handler.getTasks();
 
@@ -73,7 +73,7 @@ namespace ProcessTodo
             listBox_Tasks.ItemsSource = items;
         }
 
-        private void button_reg_new_process_Click(object sender, RoutedEventArgs e)
+        private void Button_reg_new_process_Click(object sender, RoutedEventArgs e)
         {
             string processToRegister = null;
             //TODO: implement, einschalten der prozessüberwachung als GUI.
@@ -97,10 +97,10 @@ namespace ProcessTodo
                     MessageBox.Show("Task Registering Failed.");
                 }
             }
-            updateList();
+            UpdateList();
         }
 
-        private void button_delete_selected_Click(object sender, RoutedEventArgs e)
+        private void Button_delete_selected_Click(object sender, RoutedEventArgs e)
         {
             List<string> selectedTaskNames = new List<string>();
             
@@ -119,10 +119,10 @@ namespace ProcessTodo
                     
             }
             MessageBox.Show($"Deleted {counter} Todo-Lists");
-            updateList();
+            UpdateList();
         }
 
-        private void button_reg_new_process_Copy_Click(object sender, RoutedEventArgs e)
+        private void Button_reg_new_process_Copy_Click(object sender, RoutedEventArgs e)
         {
             foreach (var item in listBox_Tasks.Items)
             {
@@ -137,7 +137,7 @@ namespace ProcessTodo
             }
         }
 
-        private void switch_window_size()
+        private void Switch_window_size()
         {
             if (App.Current.MainWindow.WindowState == WindowState.Maximized)
             {
@@ -157,7 +157,7 @@ namespace ProcessTodo
 
         private void button_maximize_Click(object sender, RoutedEventArgs e)
         {
-            switch_window_size();
+            Switch_window_size();
         }
 
         private void button_close_Click(object sender, RoutedEventArgs e)
@@ -173,7 +173,7 @@ namespace ProcessTodo
         private void Rectangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ClickCount == 2)
-                switch_window_size();
+                Switch_window_size();
 
         }
     }

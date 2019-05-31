@@ -5,111 +5,49 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProcessTodo"
         mc:Ignorable="d"
-        Title="Process Todo" Height="236.15" Width="425" Background="#FF1E1E1E" FontFamily="Century Gothic" MinWidth="425" MinHeight="380" WindowStyle="None">
+        Title="Process Todo" Height="404" Width="450.5" FontFamily="Century Gothic" MinWidth="425" MinHeight="380" WindowStyle="None" Style="{DynamicResource WindowStyle_Dark}">
 
     <WindowChrome.WindowChrome>
-        <WindowChrome 
+        <WindowChrome
         CaptionHeight="0"
         ResizeBorderThickness="5" />
     </WindowChrome.WindowChrome>
 
-
     <Grid>
         <Grid Height="24" VerticalAlignment="Top">
-            <Rectangle Fill="#FF161616" Height="24" Stroke="#FF161616" VerticalAlignment="Top" MouseDown="Rectangle_MouseDown" MouseLeftButtonDown="Rectangle_MouseLeftButtonDown"/>
-            <Button x:Name="button_close" Content="&#xD;&#xA;" HorizontalAlignment="Right" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="24" Click="button_close_Click" Style="{DynamicResource ButtonStyle_Close}">
+            <Rectangle Fill="{StaticResource Window.Static.TopBar}" Height="24" VerticalAlignment="Top" MouseDown="Rectangle_MouseDown" MouseLeftButtonDown="Rectangle_MouseLeftButtonDown" />
+            <Button x:Name="button_close" Content="&#xD;&#xA;" HorizontalAlignment="Right" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="24" Click="button_close_Click" Style="{DynamicResource ButtonStyle_DarkNoBorder}">
                 <Button.Background>
-                    <ImageBrush ImageSource="Content/buttonClose_transparent2.png" Stretch="None"/>
+                    <ImageBrush ImageSource="Content/buttonClose_transparent2.png" Stretch="None" />
                 </Button.Background>
             </Button>
-            <Button x:Name="button_max" Content="&#xA;" HorizontalAlignment="Right" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="24" Margin="0,0,24,0" Click="button_maximize_Click" Style="{DynamicResource ButtonStyle_min_max}">
+            <Button x:Name="button_max" Content="&#xA;" HorizontalAlignment="Right" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="24" Margin="0,0,24,0" Click="button_maximize_Click" Style="{DynamicResource ButtonStyle_DarkNoBorder}" >
                 <Button.Background>
-                    <ImageBrush ImageSource="Content/buttonMax_transparent.png" Stretch="None"/>
+                    <ImageBrush ImageSource="Content/buttonMax_transparent.png" Stretch="None" />
                 </Button.Background>
             </Button>
-            <Button x:Name="button_minimize" Content="&#xA;" HorizontalAlignment="Right" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="24" Margin="0,0,48,0" Click="button_minimize_Click" Tag="test123" Style="{DynamicResource ButtonStyle_min_max}">
+            <Button x:Name="button_minimize" Content="&#xA;" HorizontalAlignment="Right" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="24" Margin="0,0,48,0" Click="button_minimize_Click" Tag="test123" Style="{DynamicResource ButtonStyle_DarkNoBorder}">
                 <Button.Background>
-                    <ImageBrush ImageSource="Content/buttonMin.png" Stretch="None"/>
+                    <ImageBrush ImageSource="Content/buttonMin.png" Stretch="None" />
                 </Button.Background>
             </Button>
         </Grid>
 
+        <Button x:Name="button_reg_new_process" Content="Register New Process" Margin="10,0,0,10" Click="Button_reg_new_process_Click" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom" Height="37" Style="{DynamicResource ButtonStyle_Dark}" HorizontalAlignment="Left" Width="142" />
+        <Button x:Name="button_reg_new_process_Copy" Content="Show Todo-List" Margin="157,0,157,10" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom" Height="37" Click="Button_reg_new_process_Copy_Click" Style="{DynamicResource ButtonStyle_Dark}" />
+        <Button x:Name="button_delete_selected" Content="Delete Selected" Margin="0,0,10,10" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="37" Click="Button_delete_selected_Click" Style="{DynamicResource ButtonStyle_Dark}" Width="142" />
 
-
-        <Button x:Name="button_reg_new_process" Content="Register New Process" Margin="10,0,0,10" BorderBrush="White" Foreground="White" FontFamily="Century Gothic" Click="button_reg_new_process_Click" RenderTransformOrigin="0.5,0.5" Background="{x:Null}" HorizontalAlignment="Left" Width="128" VerticalAlignment="Bottom" Height="37" Style="{DynamicResource ButtonStyle_Flat_Dark}"/>
-        <Button x:Name="button_delete_selected" Content="Delete Selected" Margin="0,0,10,10" BorderBrush="White" Foreground="White" FontFamily="Century Gothic" RenderTransformOrigin="0.5,0.5" Background="{x:Null}" HorizontalAlignment="Right" Width="129" VerticalAlignment="Bottom" Height="37" Click="button_delete_selected_Click" Style="{DynamicResource ButtonStyle_Flat_Dark}"/>
-
-
-        <ListBox x:Name="listBox_Tasks" ItemsSource="{Binding Customers}" Margin="10,73,10,52" Background="{x:Null}" BorderBrush="White" Foreground="White" >
+        <ListBox x:Name="listBox_Tasks" ItemsSource="{Binding Customers}" Margin="10,73,10,52" Style="{DynamicResource ListBoxStyle_Dark}" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <CheckBox IsChecked="{Binding IsChecked}" Content="{Binding Text}" 
-                              FontFamily="Century Gothic" 
-                              Background="Transparent" 
-                              BorderBrush="White" 
-                              Foreground="White"                               
-                              />
+                    <CheckBox IsChecked="{Binding IsChecked}" Content="{Binding Text}"
+                              FontFamily="Century Gothic"
+                              Background="Transparent"
+                              BorderBrush="White"
+                              Foreground="White" />
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Label x:Name="label_listbox_title" Content="Registered Processes" HorizontalAlignment="Left" Margin="10,32,0,0" VerticalAlignment="Top" Background="{x:Null}" FontSize="20" Height="36" Foreground="White"/>
-        <Button x:Name="button_reg_new_process_Copy" Content="Show Todo-List" Margin="148,0,149,10" BorderBrush="White" Foreground="White" FontFamily="Century Gothic" RenderTransformOrigin="0.5,0.5" Background="{x:Null}" HorizontalAlignment="Center" Width="120" VerticalAlignment="Bottom" Height="37" Click="button_reg_new_process_Copy_Click" Style="{DynamicResource ButtonStyle_Flat_Dark}"/>
-
+        <Label x:Name="label_listbox_title" Content="Registered Processes" HorizontalAlignment="Left" Margin="10,32,0,0" VerticalAlignment="Top" FontSize="20" Height="36" Style="{DynamicResource LabelStyle_Dark}" />
     </Grid>
-    <Window.Resources>
-        <Style x:Key="{x:Type CheckBox}" TargetType="{x:Type CheckBox}">
-            <Setter Property="SnapsToDevicePixels" Value="True"/>
-            <Setter Property="OverridesDefaultStyle" Value="True"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type CheckBox}">
-                        <BulletDecorator Background="Transparent">
-                            <BulletDecorator.Bullet>
-                                <Border x:Name="Border" 
-                                   Width="15" 
-                                   Height="14" 
-                                   CornerRadius="0" 
-                                   Background="Transparent"
-                                   BorderThickness="1"
-                                   BorderBrush="White">
-                                    <Path  
-                                    x:Name="CheckMark"
-                                    Stretch="Fill"
-                                    SnapsToDevicePixels="False" 
-                                    Stroke="White"
-                                    StrokeThickness="2"
-                                    Data="M 30,100 L 80,140 L 160,60" 
-                                    Margin="1,0,1,2" />
-                                </Border>
-                            </BulletDecorator.Bullet>
-                            <ContentPresenter Margin="4,0,0,0"
-                          VerticalAlignment="Center"
-                          HorizontalAlignment="Left"
-                          RecognizesAccessKey="True"/>
-                        </BulletDecorator>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsChecked" Value="false">
-                                <Setter TargetName="CheckMark" Property="Visibility" Value="Collapsed"/>
-                            </Trigger>
-                            <Trigger Property="IsChecked" Value="{x:Null}">
-                                <Setter TargetName="CheckMark" Property="Data" Value="M 0 7 L 7 0" />
-                            </Trigger>
-                            <Trigger Property="IsMouseOver" Value="true">
-                                <Setter TargetName="Border" Property="Background" Value="#808080" />
-                            </Trigger>
-                            <Trigger Property="IsPressed" Value="true">
-                                <Setter TargetName="Border" Property="Background" Value="#E0E0E0" />
-                                <Setter TargetName="Border" Property="BorderBrush" Value="#606060" />
-                            </Trigger>
-                            <Trigger Property="IsEnabled" Value="false">
-                                <Setter TargetName="Border" Property="Background" Value="#EEEEEE" />
-                                <Setter TargetName="Border" Property="BorderBrush" Value="#AAAAAA" />
-                                <Setter Property="Foreground" Value="#888888"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>
 </Window>

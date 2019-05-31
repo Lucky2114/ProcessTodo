@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessTodo", "ProcessTodo\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoListHandler", "ToDoListHandler\ToDoListHandler.csproj", "{9D4FD77B-78C3-439C-B6CC-8F14700DD9D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessTodo-Setup", "ProcessTodo-Setup\ProcessTodo-Setup.csproj", "{44555887-C439-470C-944D-8866EC3D7067}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ProcessTodo-Setup", "ProcessTodo-Setup\ProcessTodo-Setup.vdproj", "{2BB134B2-5257-4061-8C39-CAB3228C56F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,18 +43,18 @@ Global
 		{9D4FD77B-78C3-439C-B6CC-8F14700DD9D4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9D4FD77B-78C3-439C-B6CC-8F14700DD9D4}.Release|x86.ActiveCfg = Release|Any CPU
 		{9D4FD77B-78C3-439C-B6CC-8F14700DD9D4}.Release|x86.Build.0 = Release|Any CPU
-		{44555887-C439-470C-944D-8866EC3D7067}.All|Any CPU.ActiveCfg = Release|Any CPU
-		{44555887-C439-470C-944D-8866EC3D7067}.All|Any CPU.Build.0 = Release|Any CPU
-		{44555887-C439-470C-944D-8866EC3D7067}.All|x86.ActiveCfg = Release|Any CPU
-		{44555887-C439-470C-944D-8866EC3D7067}.All|x86.Build.0 = Release|Any CPU
-		{44555887-C439-470C-944D-8866EC3D7067}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{44555887-C439-470C-944D-8866EC3D7067}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{44555887-C439-470C-944D-8866EC3D7067}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{44555887-C439-470C-944D-8866EC3D7067}.Debug|x86.Build.0 = Debug|Any CPU
-		{44555887-C439-470C-944D-8866EC3D7067}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{44555887-C439-470C-944D-8866EC3D7067}.Release|Any CPU.Build.0 = Release|Any CPU
-		{44555887-C439-470C-944D-8866EC3D7067}.Release|x86.ActiveCfg = Release|Any CPU
-		{44555887-C439-470C-944D-8866EC3D7067}.Release|x86.Build.0 = Release|Any CPU
+		{2BB134B2-5257-4061-8C39-CAB3228C56F0}.All|Any CPU.ActiveCfg = Release
+		{2BB134B2-5257-4061-8C39-CAB3228C56F0}.All|Any CPU.Build.0 = Release
+		{2BB134B2-5257-4061-8C39-CAB3228C56F0}.All|x86.ActiveCfg = Release
+		{2BB134B2-5257-4061-8C39-CAB3228C56F0}.All|x86.Build.0 = Release
+		{2BB134B2-5257-4061-8C39-CAB3228C56F0}.Debug|Any CPU.ActiveCfg = Debug
+		{2BB134B2-5257-4061-8C39-CAB3228C56F0}.Debug|Any CPU.Build.0 = Debug
+		{2BB134B2-5257-4061-8C39-CAB3228C56F0}.Debug|x86.ActiveCfg = Debug
+		{2BB134B2-5257-4061-8C39-CAB3228C56F0}.Debug|x86.Build.0 = Debug
+		{2BB134B2-5257-4061-8C39-CAB3228C56F0}.Release|Any CPU.ActiveCfg = Release
+		{2BB134B2-5257-4061-8C39-CAB3228C56F0}.Release|Any CPU.Build.0 = Release
+		{2BB134B2-5257-4061-8C39-CAB3228C56F0}.Release|x86.ActiveCfg = Release
+		{2BB134B2-5257-4061-8C39-CAB3228C56F0}.Release|x86.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
