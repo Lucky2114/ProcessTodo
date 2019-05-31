@@ -23,6 +23,9 @@ namespace ProcessTodo
     /// </summary>
     /// 
 
+    //TODO: Scale all UI elements up
+    //TODO: Resolve naming mistakes
+
     public class CheckedItem
     {
         public string Text { get; set; }
