@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media;
 using ToDoListHandler.Classes;
 using ToDoListHandler.Classes.JSON;
 
@@ -17,14 +13,14 @@ namespace ToDoListHandler
     /// </summary>
     public partial class MainWindow : Window
     {
-        private string callingProcess = "";
+        private readonly string callingProcess = "";
 
-        private Data_userInterface data_UserInterface;
-        private Data_handler data_Handler;
+        private readonly Data_userInterface data_UserInterface;
+        private readonly Data_handler data_Handler;
 
-        private string XamlPath;
+        private readonly string XamlPath;
 
-        private DataTable dataTable = new DataTable();
+        private readonly DataTable dataTable = new DataTable();
 
         public MainWindow()
         {
@@ -36,36 +32,36 @@ namespace ToDoListHandler
 
             InitializeComponent();
 
-            initializeTextBox();
+            InitializeTextBox();
 
-            this.XamlPath = findXamlfile();
-            this.data_Handler = new Data_handler(); 
+            this.XamlPath = FindXamlfile();
+            this.data_Handler = new Data_handler();
             //this.data_UserInterface = new Data_userInterface(dataTable, this.XamlPath);
             this.data_UserInterface = new Data_userInterface(rich_textbox_1, this.XamlPath);
 
             label_todoList_title.Content = callingProcess;
 
-            updateGrid();
+            UpdateGrid();
         }
 
-        private void updateGrid()
+        private void UpdateGrid()
         {
-            data_UserInterface.updateTextBox();
+            data_UserInterface.UpdateTextBox();
         }
 
-        private void saveGrid()
+        private void SaveGrid()
         {
             TodoListClass todoListClass = new TodoListClass();
             todoListClass.document = rich_textbox_1.Document;
-            data_Handler.saveXamlObject(todoListClass, this.XamlPath);
+            data_Handler.SaveXamlObject(todoListClass, this.XamlPath);
         }
 
-        private void initializeTextBox()
+        private void InitializeTextBox()
         {
 
         }
 
-        private string findXamlfile()
+        private string FindXamlfile()
         {
             string callingProcessClean = callingProcess.Replace("\\", "").Replace(":", "");
             string tmpFileName = $"{callingProcessClean}.xaml";
@@ -101,7 +97,7 @@ namespace ToDoListHandler
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            saveGrid();
+            SaveGrid();
         }
 
         private void Rectangle_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -116,7 +112,7 @@ namespace ToDoListHandler
             }
         }
 
-        private void button_maximize_Click(object sender, RoutedEventArgs e)
+        private void Button_maximize_Click(object sender, RoutedEventArgs e)
         {
             if (App.Current.MainWindow.WindowState == WindowState.Maximized)
                 App.Current.MainWindow.WindowState = WindowState.Normal;
@@ -124,20 +120,20 @@ namespace ToDoListHandler
                 App.Current.MainWindow.WindowState = WindowState.Maximized;
         }
 
-        private void button_close_Click(object sender, RoutedEventArgs e)
+        private void Button_close_Click(object sender, RoutedEventArgs e)
         {
-            saveGrid();
+            SaveGrid();
             Environment.Exit(1);
         }
 
-        private void button_minimize_Click(object sender, RoutedEventArgs e)
+        private void Button_minimize_Click(object sender, RoutedEventArgs e)
         {
             App.Current.MainWindow.WindowState = WindowState.Minimized;
         }
 
-        private void todoList_mainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private void TodoList_mainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            saveGrid();
+            SaveGrid();
         }
     }
 }

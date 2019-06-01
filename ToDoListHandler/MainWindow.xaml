@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Todo-List" Height="305" Width="329" Background="#FF1E1E1E" FontFamily="Century Gothic" MinWidth="420" MinHeight="375" BorderBrush="Transparent" WindowStyle="None" Icon="Content/to-do.png" Closing="todoList_mainWindow_Closing">
+        Title="Todo-List" Height="305" Width="329" Background="#FF1E1E1E" FontFamily="Century Gothic" MinWidth="420" MinHeight="375" BorderBrush="Transparent" WindowStyle="None" Icon="Content/to-do.png" Closing="TodoList_mainWindow_Closing">
     <WindowChrome.WindowChrome>
         <WindowChrome 
         CaptionHeight="0"
@@ -18,7 +18,7 @@
         <Grid Height="24" VerticalAlignment="Top">
             <Rectangle Fill="#FF161616" Height="24" Stroke="#FF161616" VerticalAlignment="Top" MouseDown="Rectangle_MouseDown"/>
             <Button x:Name="button_close"
-                KeyboardNavigation.IsTabStop="False" BorderBrush="{x:Null}" HorizontalAlignment="Right" Width="24" VerticalAlignment="Top" Height="24" OpacityMask="#FFD43C3C" Click="button_close_Click" Style="{DynamicResource ButtonStyle_Close}">
+                KeyboardNavigation.IsTabStop="False" BorderBrush="{x:Null}" HorizontalAlignment="Right" Width="24" VerticalAlignment="Top" Height="24" OpacityMask="#FFD43C3C" Click="Button_close_Click" Style="{DynamicResource ButtonStyle_Close}">
                 <Button.Background>
                     <ImageBrush ImageSource="Content/buttonClose_transparent2.png" Stretch="None" >
                         <ImageBrush.RelativeTransform>
@@ -33,13 +33,13 @@
                 </Button.Background>
             </Button>
             <Button x:Name="button_maximize"
-                KeyboardNavigation.IsTabStop="False" Margin="0,0,24,0" BorderBrush="{x:Null}" HorizontalAlignment="Right" Width="24" VerticalAlignment="Top" Height="24" Click="button_maximize_Click" Style="{DynamicResource ButtonStyle_min_max}">
+                KeyboardNavigation.IsTabStop="False" Margin="0,0,24,0" BorderBrush="{x:Null}" HorizontalAlignment="Right" Width="24" VerticalAlignment="Top" Height="24" Click="Button_maximize_Click" Style="{DynamicResource ButtonStyle_min_max}">
                 <Button.Background>
                     <ImageBrush ImageSource="Content/buttonMax_transparent.png" Stretch="None"/>
                 </Button.Background>
             </Button>
             <Button x:Name="button_minimize"
-                KeyboardNavigation.IsTabStop="False" Margin="0,0,48,0" BorderBrush="{x:Null}" HorizontalAlignment="Right" Width="24" VerticalAlignment="Top" Height="24" Click="button_minimize_Click" Style="{DynamicResource ButtonStyle_min_max}">
+                KeyboardNavigation.IsTabStop="False" Margin="0,0,48,0" BorderBrush="{x:Null}" HorizontalAlignment="Right" Width="24" VerticalAlignment="Top" Height="24" Click="Button_minimize_Click" Style="{DynamicResource ButtonStyle_min_max}">
                 <Button.Background>
                     <ImageBrush ImageSource="Content/buttonMin.png" Stretch="None"/>
                 </Button.Background>

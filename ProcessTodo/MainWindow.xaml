@@ -16,17 +16,17 @@
     <Grid>
         <Grid Height="24" VerticalAlignment="Top">
             <Rectangle Fill="{StaticResource Window.Static.TopBar}" Height="24" VerticalAlignment="Top" MouseDown="Rectangle_MouseDown" MouseLeftButtonDown="Rectangle_MouseLeftButtonDown" />
-            <Button x:Name="button_close" Content="&#xD;&#xA;" HorizontalAlignment="Right" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="24" Click="button_close_Click" Style="{DynamicResource ButtonStyle_DarkNoBorder}">
+            <Button x:Name="button_close" Content="&#xD;&#xA;" HorizontalAlignment="Right" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="24" Click="Button_close_Click" Style="{DynamicResource ButtonStyle_DarkNoBorder}">
                 <Button.Background>
                     <ImageBrush ImageSource="Content/buttonClose_transparent2.png" Stretch="None" />
                 </Button.Background>
             </Button>
-            <Button x:Name="button_max" Content="&#xA;" HorizontalAlignment="Right" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="24" Margin="0,0,24,0" Click="button_maximize_Click" Style="{DynamicResource ButtonStyle_DarkNoBorder}" >
+            <Button x:Name="button_max" Content="&#xA;" HorizontalAlignment="Right" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="24" Margin="0,0,24,0" Click="Button_maximize_Click" Style="{DynamicResource ButtonStyle_DarkNoBorder}" >
                 <Button.Background>
                     <ImageBrush ImageSource="Content/buttonMax_transparent.png" Stretch="None" />
                 </Button.Background>
             </Button>
-            <Button x:Name="button_minimize" Content="&#xA;" HorizontalAlignment="Right" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="24" Margin="0,0,48,0" Click="button_minimize_Click" Tag="test123" Style="{DynamicResource ButtonStyle_DarkNoBorder}">
+            <Button x:Name="button_minimize" Content="&#xA;" HorizontalAlignment="Right" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="24" Margin="0,0,48,0" Click="Button_minimize_Click" Tag="test123" Style="{DynamicResource ButtonStyle_DarkNoBorder}">
                 <Button.Background>
                     <ImageBrush ImageSource="Content/buttonMin.png" Stretch="None" />
                 </Button.Background>

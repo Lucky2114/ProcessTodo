@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace ProcessTodo.Classes
@@ -12,7 +8,7 @@ namespace ProcessTodo.Classes
     {
         private string polCategory = "";
         private string polSubcategory = "";
-        public bool isTrackingPolicySet()
+        public bool IsTrackingPolicySet()
         {
             bool res = false;
             if (SetPolKeys())
@@ -42,8 +38,8 @@ namespace ProcessTodo.Classes
         private bool SetPolKeys()
         {
             bool res = false;
-            
-            if (polCategory.Length > 1 && polSubcategory.Length > 1) 
+
+            if (polCategory.Length > 1 && polSubcategory.Length > 1)
                 return true;
             Process pProcess = new Process();
             pProcess.StartInfo.FileName = "auditpol.exe";
@@ -73,11 +69,11 @@ namespace ProcessTodo.Classes
             return res;
         }
 
-        public bool setTrackingPolicy(bool enable)
+        public bool SetTrackingPolicy(bool enable)
         {
             bool res = false;
 
-            
+
 
             if (SetPolKeys() && !this.polSubcategory.Equals("") && !this.polSubcategory.Equals(""))
             {

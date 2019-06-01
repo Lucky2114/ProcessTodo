@@ -6,7 +6,7 @@ namespace ToDoListHandler.Classes
 {
     class Data_handler
     {
-        public TodoListClass getXmlObject(string XamlPath)
+        public TodoListClass GetXmlObject(string XamlPath)
         {
             try
             {
@@ -15,13 +15,13 @@ namespace ToDoListHandler.Classes
                 TodoListClass r = (TodoListClass)XamlReader.Parse(xaml);
                 return r;
             }
-            catch 
+            catch
             {
                 return null;
             }
         }
 
-        public void saveXamlObject(TodoListClass obj, string XamlPath)
+        public void SaveXamlObject(TodoListClass obj, string XamlPath)
         {
             string xml = XamlWriter.Save(obj);
             File.WriteAllText(XamlPath, xml);

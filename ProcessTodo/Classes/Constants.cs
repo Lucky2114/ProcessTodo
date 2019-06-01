@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ProcessTodo.Classes
+﻿namespace ProcessTodo.Classes
 {
-    class Constants
+    public static class Constants
     {
         public const string taskSchedFolder = @"\ProcessToDo\";
 

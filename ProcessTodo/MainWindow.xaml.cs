@@ -2,19 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Microsoft.Win32.TaskScheduler;
-using System.IO;
 
 namespace ProcessTodo
 {
@@ -34,7 +23,7 @@ namespace ProcessTodo
 
     public partial class MainWindow : Window
     {
-        private TaskSched_Handler t_handler;
+        private readonly TaskSched_Handler t_handler;
         public MainWindow()
         {
             InitializeComponent();
@@ -49,16 +38,16 @@ namespace ProcessTodo
         {
             AuditPol_HND auditPol_HND = new AuditPol_HND();
 
-            if (!auditPol_HND.isTrackingPolicySet())
+            if (!auditPol_HND.IsTrackingPolicySet())
             {
                 //Need to set auditpol!
                 new window_auditpol().ShowDialog();
-            } else
-            {
-                //Great!
-                
             }
-               
+            else
+            {
+                //auditpol allready set
+            }
+
         }
 
         private void UpdateList()
@@ -85,17 +74,18 @@ namespace ProcessTodo
             // Set filter for file extension and default file extension 
             dlg.DefaultExt = ".exe";
             dlg.Filter = "Executables (*.exe)|*.exe|All Files (*.*)|*.*";
-            
+
             bool? result = dlg.ShowDialog();
-            
+
             if (result == true)
             {
                 processToRegister = dlg.FileName;
-                bool exec = t_handler.createTask(processToRegister, "[PTD] - " + processToRegister.Replace("\\", "_").Replace(":", "_"));
+                bool exec = t_handler.CreateTask(processToRegister, "[PTD] - " + processToRegister.Replace("\\", "_").Replace(":", "_"));
                 if (exec)
                 {
                     //Goood
-                } else
+                }
+                else
                 {
                     MessageBox.Show("Task Registering Failed.");
                 }
@@ -106,7 +96,7 @@ namespace ProcessTodo
         private void Button_delete_selected_Click(object sender, RoutedEventArgs e)
         {
             List<string> selectedTaskNames = new List<string>();
-            
+
             foreach (CheckedItem ci in listBox_Tasks.Items)
             {
                 if (ci.IsChecked)
@@ -115,11 +105,11 @@ namespace ProcessTodo
             int counter = 0;
             foreach (string t in selectedTaskNames)
             {
-                t_handler.deleteTask(t);
-                
-                if (new FileSystem().deleteTodoListFile(t))
+                t_handler.DeleteTask(t);
+
+                if (new FileSystem().DeleteTodoListFile(t))
                     counter += 1;
-                    
+
             }
             MessageBox.Show($"Deleted {counter} Todo-Lists");
             UpdateList();
@@ -132,7 +122,7 @@ namespace ProcessTodo
                 CheckedItem tmp = (CheckedItem)item;
                 if (tmp.IsChecked)
                 {
-                    if (!t_handler.runTask(tmp.Text))
+                    if (!t_handler.RunTask(tmp.Text))
                     {
                         MessageBox.Show("Task could not be executed");
                     }
@@ -158,17 +148,17 @@ namespace ProcessTodo
             App.Current.MainWindow.DragMove();
         }
 
-        private void button_maximize_Click(object sender, RoutedEventArgs e)
+        private void Button_maximize_Click(object sender, RoutedEventArgs e)
         {
             Switch_window_size();
         }
 
-        private void button_close_Click(object sender, RoutedEventArgs e)
+        private void Button_close_Click(object sender, RoutedEventArgs e)
         {
             Environment.Exit(1);
         }
 
-        private void button_minimize_Click(object sender, RoutedEventArgs e)
+        private void Button_minimize_Click(object sender, RoutedEventArgs e)
         {
             App.Current.MainWindow.WindowState = WindowState.Minimized;
         }
