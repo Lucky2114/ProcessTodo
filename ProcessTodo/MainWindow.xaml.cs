@@ -17,6 +17,8 @@ namespace ProcessTodo
     /// 
 
     //TODO: Scale all UI elements up
+    //TODO: Better embedding in Process Window Host
+    //TODO: Auto Terminate when host closes
 
     
 
@@ -51,29 +53,25 @@ namespace ProcessTodo
 
         private void UpdateList()
         {
-            List<Task> tasks = t_handler.getTasks();
-
-            CheckBox cb = new CheckBox();
-            cb.SetResourceReference(Control.StyleProperty, "CheckBoxStyle_Dark");
-
-            List<CheckedItem> items = new List<CheckedItem>();
-            foreach (Task task in tasks)
+            listBox_Tasks.Items.Clear();
+            foreach (Task task in t_handler.GetTasks())
             {
+                CheckBox cb = new CheckBox();
+                cb.SetResourceReference(Control.StyleProperty, "CheckBoxStyle_Dark");
                 //format the name
                 string tmpName = "lb_task_item_" + task.Name.Replace("[PTD]", "").Replace(" ", "").Replace("-", "").Split('.').First();
-                //items.Add(new CheckedItem() { Text = task.Name, IsChecked = false });
-                cb.Content = task.Name;
+                cb.Content = new TaskListBoxItem() { Text = tmpName, TaskFullName = task.Name };
                 cb.IsChecked = false;
+                listBox_Tasks.Items.Add(cb);
             }
 
-            listBox_Tasks.Items.Add(cb);
-            //listBox_Tasks.ItemsSource = items;
+            
         }
 
         private void Button_reg_new_process_Click(object sender, RoutedEventArgs e)
         {
             //TODO: implement, einschalten der prozessüberwachung als GUI.
-            OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            OpenFileDialog dlg = new OpenFileDialog();
 
             // Set filter for file extension and default file extension 
             dlg.DefaultExt = ".exe";
@@ -101,10 +99,10 @@ namespace ProcessTodo
         {
             List<string> selectedTaskNames = new List<string>();
 
-            foreach (CheckedItem ci in listBox_Tasks.Items)
+            foreach (CheckBox cb in listBox_Tasks.Items)
             {
-                if (ci.IsChecked)
-                    selectedTaskNames.Add(ci.Text);
+                if (cb.IsChecked == true)
+                    selectedTaskNames.Add(((TaskListBoxItem)cb.Content).TaskFullName);
             }
             int counter = 0;
             foreach (string t in selectedTaskNames)
@@ -123,10 +121,10 @@ namespace ProcessTodo
         {
             foreach (var item in listBox_Tasks.Items)
             {
-                CheckedItem tmp = (CheckedItem)item;
-                if (tmp.IsChecked)
+                CheckBox tmp = (CheckBox)item;
+                if (tmp.IsChecked == true)
                 {
-                    if (!t_handler.RunTask(tmp.Text))
+                    if (!t_handler.RunTask(((TaskListBoxItem)tmp.Content).TaskFullName))
                     {
                         MessageBox.Show("Task could not be executed");
                     }

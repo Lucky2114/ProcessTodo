@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProcessTodo.Classes.Objects
 {
-    public class CheckedItem
+    public class TaskListBoxItem
     {
         public string Text { get; set; }
-        public bool IsChecked { get; set; }
+        public string TaskFullName { get; set; }
     }
 }
