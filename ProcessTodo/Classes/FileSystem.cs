@@ -5,29 +5,34 @@ using System.Windows;
 
 namespace ProcessTodo.Classes
 {
-    class FileSystem
+    public static class FileSystem
     {
-        public bool DeleteTodoListFile(string name)
+        public static bool DeleteTodoListFile(string xamlFilePath)
         {
             bool res = false;
-            string tmp = name.Replace("_", "").Replace("[PTD] - ", "") + ".xaml";
+            try
+            {
+                File.Delete(xamlFilePath);
+                res = true;
+            }
+            catch
+            {
+                res = false;
+            }
 
-            MessageBox.Show(tmp);
+            return res;
+        }
 
-            string workingDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\processtodo_todolists\\";
+        public static string FindTodoListHandlerExe()
+        {
+            string res = "";
 
-            string[] files = Directory.GetFiles(workingDirectory, tmp, SearchOption.AllDirectories);
+            string workingDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string[] files = Directory.GetFiles(workingDirectory, "ToDoListHandler.exe", SearchOption.AllDirectories);
+
             if (files.Length > 0)
             {
-                try
-                {
-                    File.Delete(files.First());
-                    res = true;
-                }
-                catch
-                {
-                    res = false;
-                }
+                res = files.First();
             }
             return res;
         }

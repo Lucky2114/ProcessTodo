@@ -6,11 +6,11 @@ namespace ToDoListHandler.Classes
     {
         private readonly RichTextBox richTextBox;
         private readonly Data_handler data_Handler;
-        private readonly string jsonPath;
+        private readonly string xamlPath;
         public Data_userInterface(RichTextBox richTextBox, string jsonPath)
         {
             this.richTextBox = richTextBox;
-            this.jsonPath = jsonPath;
+            this.xamlPath = jsonPath;
             this.data_Handler = new Data_handler();
         }
 
@@ -18,7 +18,7 @@ namespace ToDoListHandler.Classes
         {
             try
             {
-                richTextBox.Document = data_Handler.GetXmlObject(this.jsonPath).document;
+                richTextBox.Document = data_Handler.GetXmlObject(this.xamlPath).document;
             }
             catch
             {

@@ -1,5 +1,6 @@
-﻿using System;
-using System.Data;
+﻿using ProcessTodo.Classes;
+using ProcessTodo.Classes.Objects;
+using System;
 using System.IO;
 using System.Linq;
 using System.Windows;
@@ -13,33 +14,28 @@ namespace ToDoListHandler
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly string callingProcess = "";
+        private readonly string callingProcessId = "";
 
         private readonly Data_userInterface data_UserInterface;
         private readonly Data_handler data_Handler;
 
         private readonly string XamlPath;
 
-        private readonly DataTable dataTable = new DataTable();
-
         public MainWindow()
         {
             try
             {
-                callingProcess = Environment.GetCommandLineArgs().Last().Replace("caller=", "");
+                callingProcessId = Environment.GetCommandLineArgs().Last().Replace("caller=", "");
             }
             catch { }
 
             InitializeComponent();
 
-            InitializeTextBox();
-
-            this.XamlPath = FindXamlfile();
+            this.XamlPath = FindOrCreateXamlfile();
             this.data_Handler = new Data_handler();
-            //this.data_UserInterface = new Data_userInterface(dataTable, this.XamlPath);
             this.data_UserInterface = new Data_userInterface(rich_textbox_1, this.XamlPath);
 
-            label_todoList_title.Content = callingProcess;
+            label_todoList_title.Content = callingProcessId;
 
             UpdateGrid();
         }
@@ -56,44 +52,16 @@ namespace ToDoListHandler
             data_Handler.SaveXamlObject(todoListClass, this.XamlPath);
         }
 
-        private void InitializeTextBox()
+        private string FindOrCreateXamlfile()
         {
-
-        }
-
-        private string FindXamlfile()
-        {
-            string callingProcessClean = callingProcess.Replace("\\", "").Replace(":", "");
-            string tmpFileName = $"{callingProcessClean}.xaml";
-            string res = "";
-
-            string XamlFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\processtodo_todolists\\";
-
-            if (!Directory.Exists(XamlFolderPath))
-                Directory.CreateDirectory(XamlFolderPath);
-
-
-            string[] files = Directory.GetFiles(XamlFolderPath, tmpFileName, SearchOption.AllDirectories);
-
-            if (files.Length > 0)
+            TodoList todoList = TodoListManager.FindTodoListFromJson(callingProcessId);
+            if (todoList != null)
             {
-                res = files.First();
-            }
-            else
-            {
-                try
-                {
-                    res = XamlFolderPath + tmpFileName;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
-
-            return res;
+                if (!File.Exists(todoList.XamlFilePath))
+                    File.Create(todoList.XamlFilePath);
+                return todoList.XamlFilePath;
+            } else return "";
         }
-
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

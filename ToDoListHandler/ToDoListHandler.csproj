@@ -83,8 +83,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Classes\Constants.cs" />
     <Compile Include="Classes\Data_handler.cs" />
     <Compile Include="Classes\Data_userInterface.cs" />
+    <Compile Include="Classes\Object\TodoList.cs" />
+    <Compile Include="Classes\TodoListManager.cs" />
     <Compile Include="Classes\XAML\TodoListClass.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

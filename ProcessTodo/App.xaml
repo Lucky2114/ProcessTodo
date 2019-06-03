@@ -156,7 +156,7 @@
         </Style>
 
         <!--___________________________________________________________________-->
-        <!--//_______________________Button Dark Style (With Border)_________\\-->
+        <!--//_________________Button Dark Style (With Border)_______________\\-->
         <!--___________________________________________________________________-->
         <Style x:Key="ButtonStyle_Dark" TargetType="{x:Type Button}">
             <Setter Property="Background" Value="{StaticResource Color.Static.Background}" />

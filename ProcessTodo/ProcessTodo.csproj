@@ -66,7 +66,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\AuditPol_HND.cs" />
-    <Compile Include="Classes\Objects\CheckedItem.cs" />
     <Compile Include="window_auditpol.xaml.cs">
       <DependentUpon>window_auditpol.xaml</DependentUpon>
     </Compile>
@@ -78,9 +77,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Classes\Constants.cs" />
     <Compile Include="Classes\FileSystem.cs" />
-    <Compile Include="Classes\TaskSched_Handler.cs" />
+    <Compile Include="Classes\TaskSched_Communicator.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -137,6 +135,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Content\to-do.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Classes\Objects\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
