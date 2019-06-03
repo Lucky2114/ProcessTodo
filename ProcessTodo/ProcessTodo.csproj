@@ -66,6 +66,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\AuditPol_HND.cs" />
+    <Compile Include="Classes\Objects\CheckedItem.cs" />
     <Compile Include="window_auditpol.xaml.cs">
       <DependentUpon>window_auditpol.xaml</DependentUpon>
     </Compile>

@@ -16,38 +16,30 @@
     <Grid>
         <Grid Height="24" VerticalAlignment="Top">
             <Rectangle Fill="{StaticResource Window.Static.TopBar}" Height="24" VerticalAlignment="Top" MouseDown="Rectangle_MouseDown" MouseLeftButtonDown="Rectangle_MouseLeftButtonDown" />
-            <Button x:Name="button_close" Content="&#xD;&#xA;" HorizontalAlignment="Right" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="24" Click="Button_close_Click" Style="{DynamicResource ButtonStyle_DarkNoBorder}">
+            <Button x:Name="button_close" Content="&#xD;&#xA;" HorizontalAlignment="Right" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="24" Click="Button_close_Click" Style="{DynamicResource ButtonStyle_DarkNoText}">
                 <Button.Background>
                     <ImageBrush ImageSource="Content/buttonClose_transparent2.png" Stretch="None" />
                 </Button.Background>
             </Button>
-            <Button x:Name="button_max" Content="&#xA;" HorizontalAlignment="Right" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="24" Margin="0,0,24,0" Click="Button_maximize_Click" Style="{DynamicResource ButtonStyle_DarkNoBorder}" >
+            <Button x:Name="button_max" Content="&#xA;" HorizontalAlignment="Right" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="24" Margin="0,0,24,0" Click="Button_maximize_Click" Style="{DynamicResource ButtonStyle_DarkNoText}" >
                 <Button.Background>
                     <ImageBrush ImageSource="Content/buttonMax_transparent.png" Stretch="None" />
                 </Button.Background>
             </Button>
-            <Button x:Name="button_minimize" Content="&#xA;" HorizontalAlignment="Right" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="24" Margin="0,0,48,0" Click="Button_minimize_Click" Tag="test123" Style="{DynamicResource ButtonStyle_DarkNoBorder}">
+            <Button x:Name="button_minimize" Content="&#xA;" HorizontalAlignment="Right" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="24" Margin="0,0,48,0" Click="Button_minimize_Click" Tag="test123" Style="{DynamicResource ButtonStyle_DarkNoText}">
                 <Button.Background>
                     <ImageBrush ImageSource="Content/buttonMin.png" Stretch="None" />
                 </Button.Background>
             </Button>
         </Grid>
 
-        <Button x:Name="button_reg_new_process" Content="Register New Process" Margin="10,0,0,10" Click="Button_reg_new_process_Click" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom" Height="37" Style="{DynamicResource ButtonStyle_Dark}" HorizontalAlignment="Left" Width="142" />
-        <Button x:Name="button_reg_new_process_Copy" Content="Show Todo-List" Margin="157,0,157,10" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom" Height="37" Click="Button_reg_new_process_Copy_Click" Style="{DynamicResource ButtonStyle_Dark}" />
-        <Button x:Name="button_delete_selected" Content="Delete Selected" Margin="0,0,10,10" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="37" Click="Button_delete_selected_Click" Style="{DynamicResource ButtonStyle_Dark}" Width="142" />
-
-        <ListBox x:Name="listBox_Tasks" ItemsSource="{Binding Customers}" Margin="10,73,10,52" Style="{DynamicResource ListBoxStyle_Dark}" >
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <CheckBox IsChecked="{Binding IsChecked}" Content="{Binding Text}"
-                              FontFamily="Century Gothic"
-                              Background="Transparent"
-                              BorderBrush="White"
-                              Foreground="White" />
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
         <Label x:Name="label_listbox_title" Content="Registered Processes" HorizontalAlignment="Left" Margin="10,32,0,0" VerticalAlignment="Top" FontSize="20" Height="36" Style="{DynamicResource LabelStyle_Dark}" />
+
+        <ListBox x:Name="listBox_Tasks" Margin="10,73,10,52" Style="{DynamicResource ListBoxStyle_Dark}" />
+
+        <Button x:Name="button_reg_new_process" Content="Register New Process" Margin="10,0,0,10" Click="Button_reg_new_process_Click" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom" Height="37" Style="{DynamicResource ButtonStyle_DarkNoBorder}" HorizontalAlignment="Left" Width="142" />
+        <Button x:Name="button_reg_new_process_Copy" Content="Show Todo-List" Margin="157,0,157,10" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom" Height="37" Click="Button_reg_new_process_Copy_Click" Style="{DynamicResource ButtonStyle_DarkNoBorder}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+        <Button x:Name="button_delete_selected" Content="Delete Selected" Margin="0,0,10,10" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="37" Click="Button_delete_selected_Click" Style="{DynamicResource ButtonStyle_DarkNoBorder}" Width="142" />
+
     </Grid>
 </Window>
