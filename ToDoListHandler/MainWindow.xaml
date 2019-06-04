@@ -4,7 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Todo-List" Height="305" Width="329" Background="#FF1E1E1E" FontFamily="Century Gothic" MinWidth="420" MinHeight="375" BorderBrush="Transparent" WindowStyle="None" Icon="Content/to-do.png" Closing="TodoList_mainWindow_Closing">
+        FontFamily="Century Gothic"
+        Title="Todo-List" Height="450" Width="586.5" MinWidth="420" MinHeight="375" WindowStyle="None" Icon="Content/to-do.png" Closing="TodoList_mainWindow_Closing" Style="{DynamicResource WindowStyle_Dark}">
     <WindowChrome.WindowChrome>
         <WindowChrome 
         CaptionHeight="0"
@@ -13,42 +14,31 @@
     <Grid>
 
 
-        <Button Content="Save" Margin="10,0,10,10" RenderTransformOrigin="0.933,0.526" Click="Button_Click" Background="{x:Null}" BorderBrush="White" Foreground="White" VerticalAlignment="Bottom" Height="28" Style="{DynamicResource ButtonStyle_Flat_Dark}"/>
-        <Label x:Name="label_todoList_title" Content="Label" HorizontalAlignment="Left" Margin="10,29,0,0" Foreground="White" VerticalAlignment="Top"/>
+        <Button Content="Save" Margin="10,0,10,10" RenderTransformOrigin="0.933,0.526" Click="Button_Click" VerticalAlignment="Bottom" Style="{DynamicResource ButtonStyle_Dark}" FontSize="18"/>
+        <Label x:Name="label_todoList_title" Content="Calling Process" HorizontalAlignment="Left" Margin="10,29,0,0" VerticalAlignment="Top" Style="{DynamicResource LabelStyle_Dark}" FontSize="24"/>
         <Grid Height="24" VerticalAlignment="Top">
-            <Rectangle Fill="#FF161616" Height="24" Stroke="#FF161616" VerticalAlignment="Top" MouseDown="Rectangle_MouseDown"/>
-            <Button x:Name="button_close"
-                KeyboardNavigation.IsTabStop="False" BorderBrush="{x:Null}" HorizontalAlignment="Right" Width="24" VerticalAlignment="Top" Height="24" OpacityMask="#FFD43C3C" Click="Button_close_Click" Style="{DynamicResource ButtonStyle_Close}">
+            <Rectangle Fill="{StaticResource Window.Static.TopBar}" Height="24" VerticalAlignment="Top" MouseDown="Rectangle_MouseDown" MouseLeftButtonDown="Rectangle_MouseLeftButtonDown" />
+            <Button x:Name="button_close" Content="&#xD;&#xA;" HorizontalAlignment="Right" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="24" Click="Button_close_Click" Style="{DynamicResource ButtonStyle_DarkNoText}">
                 <Button.Background>
-                    <ImageBrush ImageSource="Content/buttonClose_transparent2.png" Stretch="None" >
-                        <ImageBrush.RelativeTransform>
-                            <TransformGroup>
-                                <ScaleTransform ScaleY="1" ScaleX="1"/>
-                                <SkewTransform AngleY="0" AngleX="0"/>
-                                <RotateTransform Angle="0"/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </ImageBrush.RelativeTransform>
-                    </ImageBrush>
+                    <ImageBrush ImageSource="Content/buttonClose_transparent2.png" Stretch="None" />
                 </Button.Background>
             </Button>
-            <Button x:Name="button_maximize"
-                KeyboardNavigation.IsTabStop="False" Margin="0,0,24,0" BorderBrush="{x:Null}" HorizontalAlignment="Right" Width="24" VerticalAlignment="Top" Height="24" Click="Button_maximize_Click" Style="{DynamicResource ButtonStyle_min_max}">
+            <Button x:Name="button_max" Content="&#xA;" HorizontalAlignment="Right" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="24" Margin="0,0,24,0" Click="Button_maximize_Click" Style="{DynamicResource ButtonStyle_DarkNoText}" >
                 <Button.Background>
-                    <ImageBrush ImageSource="Content/buttonMax_transparent.png" Stretch="None"/>
+                    <ImageBrush ImageSource="Content/buttonMax_transparent.png" Stretch="None" />
                 </Button.Background>
             </Button>
-            <Button x:Name="button_minimize"
-                KeyboardNavigation.IsTabStop="False" Margin="0,0,48,0" BorderBrush="{x:Null}" HorizontalAlignment="Right" Width="24" VerticalAlignment="Top" Height="24" Click="Button_minimize_Click" Style="{DynamicResource ButtonStyle_min_max}">
+            <Button x:Name="button_minimize" Content="&#xA;" HorizontalAlignment="Right" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="24" Margin="0,0,48,0" Click="Button_minimize_Click" Tag="test123" Style="{DynamicResource ButtonStyle_DarkNoText}">
                 <Button.Background>
-                    <ImageBrush ImageSource="Content/buttonMin.png" Stretch="None"/>
+                    <ImageBrush ImageSource="Content/buttonMin.png" Stretch="None" />
                 </Button.Background>
             </Button>
         </Grid>
-        <RichTextBox x:Name="rich_textbox_1" Margin="10,54,10,48" Background="#FF2B2B2B" BorderBrush="White" Foreground="White" SelectionBrush="#FFAAAAAA">
+
+        <RichTextBox x:Name="rich_textbox_1" Margin="10,73.427,10,41.07" Style="{DynamicResource RichTextBoxStyle_Dark}" FontSize="18">
             <FlowDocument>
                 <Paragraph>
-                    <Run Text=""/>
+                    <Run Text="Test123 TextText"/>
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>

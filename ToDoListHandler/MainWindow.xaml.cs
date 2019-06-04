@@ -60,14 +60,14 @@ namespace ToDoListHandler
                 if (!File.Exists(todoList.XamlFilePath))
                     File.Create(todoList.XamlFilePath);
                 return todoList.XamlFilePath;
-            } else return "";
+            }
+            else return "";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             SaveGrid();
         }
-
         private void Rectangle_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             try
@@ -80,12 +80,22 @@ namespace ToDoListHandler
             }
         }
 
-        private void Button_maximize_Click(object sender, RoutedEventArgs e)
+
+        private void Switch_window_size()
         {
             if (App.Current.MainWindow.WindowState == WindowState.Maximized)
+            {
                 App.Current.MainWindow.WindowState = WindowState.Normal;
+            }
             else if (App.Current.MainWindow.WindowState == WindowState.Normal)
+            {
                 App.Current.MainWindow.WindowState = WindowState.Maximized;
+            }
+        }
+
+        private void Button_maximize_Click(object sender, RoutedEventArgs e)
+        {
+            Switch_window_size();
         }
 
         private void Button_close_Click(object sender, RoutedEventArgs e)
@@ -102,6 +112,14 @@ namespace ToDoListHandler
         private void TodoList_mainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             SaveGrid();
+        }
+
+        private void Rectangle_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+
+            if (e.ClickCount == 2)
+                Switch_window_size();
+
         }
     }
 }

@@ -17,6 +17,7 @@ namespace ProcessTodo
     //TODO: Scale all UI elements up
     //TODO: Better embedding in Process Window Host
     //TODO: Auto Terminate when host closes
+    //TODO: Auditpol handling still ugly as hell
 
     public partial class MainWindow : Window
     {
