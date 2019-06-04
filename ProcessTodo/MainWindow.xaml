@@ -1,9 +1,9 @@
-﻿<Window x:Name="mainWindow" x:Class="ProcessTodo.MainWindow"
+﻿<Window x:Name="mainWindow" x:Class="ToDoListHandler.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ProcessTodo"
+        xmlns:local="clr-namespace:ToDoListHandler"
         mc:Ignorable="d"
         Title="Process Todo" Height="693.834" Width="615.167" FontFamily="Century Gothic" MinWidth="425" MinHeight="380" WindowStyle="None" Style="{DynamicResource WindowStyle_Dark}">
 

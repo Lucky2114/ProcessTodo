@@ -1,9 +1,9 @@
-﻿<Window x:Class="ProcessTodo.window_auditpol"
+﻿<Window x:Class="ToDoListHandler.window_auditpol"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ProcessTodo"
+        xmlns:local="clr-namespace:ToDoListHandler"
         mc:Ignorable="d"
         Title="Audit Policy" Height="258" Width="232" Background="#FF1E1E1E" FontFamily="Century Gothic" MinWidth="425" MinHeight="380" WindowStyle="None">
 

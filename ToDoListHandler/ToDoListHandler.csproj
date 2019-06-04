@@ -52,11 +52,16 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Win32.TaskScheduler, Version=2.8.11.0, Culture=neutral, PublicKeyToken=c416bc1b32d97233, processorArchitecture=MSIL">
+      <HintPath>..\packages\TaskScheduler.2.8.11\lib\net452\Microsoft.Win32.TaskScheduler.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -86,7 +91,9 @@
     <Compile Include="Classes\Constants.cs" />
     <Compile Include="Classes\Data_handler.cs" />
     <Compile Include="Classes\Data_userInterface.cs" />
+    <Compile Include="Classes\FileSystem.cs" />
     <Compile Include="Classes\Object\TodoList.cs" />
+    <Compile Include="Classes\TaskSched_Communicator.cs" />
     <Compile Include="Classes\TodoListManager.cs" />
     <Compile Include="Classes\XAML\TodoListClass.cs" />
     <Compile Include="MainWindow.xaml.cs">

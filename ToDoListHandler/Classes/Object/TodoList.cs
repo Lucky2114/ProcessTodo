@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProcessTodo.Classes.Objects
+namespace ToDoListHandler.Classes.Objects
 {
     
     public class TodoList

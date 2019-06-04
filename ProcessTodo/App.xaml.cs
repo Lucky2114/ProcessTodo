@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace ProcessTodo
+namespace ToDoListHandler
 {
     /// <summary>
     /// Interaktionslogik für "App.xaml"

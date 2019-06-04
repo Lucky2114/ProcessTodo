@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProcessTodo.Properties {
+namespace ToDoListHandler.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

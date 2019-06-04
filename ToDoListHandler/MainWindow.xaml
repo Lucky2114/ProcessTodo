@@ -38,7 +38,7 @@
         <RichTextBox x:Name="rich_textbox_1" Margin="10,73.427,10,41.07" Style="{DynamicResource RichTextBoxStyle_Dark}" FontSize="18">
             <FlowDocument>
                 <Paragraph>
-                    <Run Text="Test123 TextText"/>
+                    <Run Text=""/>
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>

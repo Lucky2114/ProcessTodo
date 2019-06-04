@@ -1,10 +1,9 @@
-﻿using ProcessTodo.Classes;
-using ProcessTodo.Classes.Objects;
+﻿using ToDoListHandler.Classes;
+using ToDoListHandler.Classes.Objects;
 using System;
 using System.IO;
 using System.Linq;
 using System.Windows;
-using ToDoListHandler.Classes;
 using ToDoListHandler.Classes.JSON;
 
 namespace ToDoListHandler

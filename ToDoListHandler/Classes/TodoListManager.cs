@@ -1,12 +1,13 @@
 ﻿using Newtonsoft.Json;
-using ProcessTodo.Classes.Objects;
+using ToDoListHandler.Classes.Objects;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows;
+using Microsoft.Win32.TaskScheduler;
 
-namespace ProcessTodo.Classes
+namespace ToDoListHandler.Classes
 {
     public static class TodoListManager
     {
@@ -65,6 +66,24 @@ namespace ProcessTodo.Classes
                 res = dir + jsonFileName;
             }
             return res;
+        }
+
+        public static void UpdateJsonFileFromTaskScheduler()
+        {
+            List<TodoList> todoListsJson = GetListFromJson();
+            List<Task> tasks = TaskSched_Communicator.GetProcessTodoTasks();
+
+            foreach (var item in todoListsJson.Reverse<TodoList>())
+            {
+                //Check if a task is registered with this name
+                if (tasks.Where(p => String.Equals(p.Name, item.TaskName, StringComparison.CurrentCulture)).ToArray().Length <= 0)
+                {
+                    todoListsJson.Remove(item);
+                    File.Delete(item.XamlFilePath);
+                }
+            }
+            UpdateJsonFile(todoListsJson);
+            
         }
     }
 }

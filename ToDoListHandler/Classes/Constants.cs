@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ProcessTodo.Classes
+namespace ToDoListHandler.Classes
 {
     public static class Constants
     {

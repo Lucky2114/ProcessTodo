@@ -6,14 +6,14 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows;
 
-namespace ProcessTodo.Classes
+namespace ToDoListHandler.Classes
 {
-    public class TaskSched_Communicator
+    public static class TaskSched_Communicator
     {
         //Handles the events of external programms. Uses the inbuilt Windows Task Scheduler, therefore application doesn't need to run in the background
         //Make sure to enable proccess creation logging
 
-        public bool CreateTask(string processPath, string taskName, string processId)
+        public static bool CreateTask(string processPath, string taskName, string processId)
         {
             if (processId == null)
                 throw new ArgumentNullException(nameof(processId));
@@ -50,7 +50,7 @@ namespace ProcessTodo.Classes
         }
 
 
-        public void DeleteTask(string taskFullName)
+        public static void DeleteTask(string taskFullName)
         {
             using (TaskService ts = new TaskService())
             {
@@ -65,7 +65,7 @@ namespace ProcessTodo.Classes
             }
         }
 
-        public List<Task> GetTasks()
+        public static List<Task> GetProcessTodoTasks()
         {
             List<Task> tasks = new List<Task>();
             using (TaskService ts = new TaskService())
@@ -79,7 +79,7 @@ namespace ProcessTodo.Classes
             return tasks;
         }
 
-        public bool RunTask(string taskFullName)
+        public static bool RunTask(string taskFullName)
         {
             bool res = false;
             using (TaskService ts = new TaskService())

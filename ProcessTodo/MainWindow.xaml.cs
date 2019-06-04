@@ -1,13 +1,13 @@
 ﻿using Microsoft.Win32;
-using ProcessTodo.Classes;
-using ProcessTodo.Classes.Objects;
+using ToDoListHandler.Classes;
+using ToDoListHandler.Classes.Objects;
 using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace ProcessTodo
+namespace ToDoListHandler
 {
     /// <summary>
     /// Interaktionslogik für MainWindow.xaml
@@ -21,15 +21,14 @@ namespace ProcessTodo
 
     public partial class MainWindow : Window
     {
-        private readonly TaskSched_Communicator t_handler;
-
         public MainWindow()
         {
             InitializeComponent();
 
             Check_auditpol();
 
-            t_handler = new TaskSched_Communicator();
+            TodoListManager.UpdateJsonFileFromTaskScheduler();
+
             UpdateList();
         }
 
@@ -61,7 +60,6 @@ namespace ProcessTodo
                 CheckBox cb = new CheckBox();
                 cb.SetResourceReference(Control.StyleProperty, "CheckBoxStyle_Dark");
                 //format the name
-                //string tmpName = "lb_task_item_" + .Name.Replace("[PTD]", "").Replace(" ", "").Replace("-", "").Split('.').First();
                 cb.Tag = tList;
                 cb.Content = tList.DisplayName;
                 cb.IsChecked = false;
@@ -83,12 +81,18 @@ namespace ProcessTodo
             if (result == true)
             {
                 string processToRegister = dlg.FileName;
-                string taskName = processToRegister.Replace("\\", "_").Replace(":", "_");
+                string taskName = "[PTD]__" + processToRegister.Replace("\\", "_").Replace(":", "_");
                 string xamlPath = Constants.todoListDataFolder + taskName + ".xaml";
                 string processId = taskName + new Random().Next();
-                TodoList todoList = new TodoList() { DisplayName = dlg.FileName, TaskName = taskName, XamlFilePath = xamlPath, Id = processId };
+                TodoList todoList = new TodoList()
+                {
+                    DisplayName = dlg.FileName,
+                    TaskName = taskName,
+                    XamlFilePath = xamlPath,
+                    Id = processId
+                };
 
-                bool exec = t_handler.CreateTask(processToRegister, taskName, processId);
+                bool exec = TaskSched_Communicator.CreateTask(processToRegister, taskName, processId);
                 if (exec)
                 {
                     TodoListManager.AddTodoList(todoList); //Adds the new TodoList to the json file
@@ -108,7 +112,7 @@ namespace ProcessTodo
                 CheckBox tmp = (CheckBox)item;
                 if (tmp.IsChecked == true)
                 {
-                    if (!t_handler.RunTask(((TodoList)tmp.Tag).TaskName))
+                    if (!TaskSched_Communicator.RunTask(((TodoList)tmp.Tag).TaskName))
                     {
                         MessageBox.Show("Task could not be executed");
                     }
@@ -127,7 +131,7 @@ namespace ProcessTodo
                     TodoList selectedTodoList = (TodoList)cb.Tag;
                     List<TodoList> listTemp = TodoListManager.GetListFromJson();
 
-                    t_handler.DeleteTask(selectedTodoList.TaskName);
+                    TaskSched_Communicator.DeleteTask(selectedTodoList.TaskName);
 
                     if (FileSystem.DeleteTodoListFile(selectedTodoList.XamlFilePath))
                         counter++;
@@ -143,19 +147,19 @@ namespace ProcessTodo
 
         private void Switch_window_size()
         {
-            if (App.Current.MainWindow.WindowState == WindowState.Maximized)
+            if (Application.Current.MainWindow.WindowState == WindowState.Maximized)
             {
-                App.Current.MainWindow.WindowState = WindowState.Normal;
+                Application.Current.MainWindow.WindowState = WindowState.Normal;
             }
-            else if (App.Current.MainWindow.WindowState == WindowState.Normal)
+            else if (Application.Current.MainWindow.WindowState == WindowState.Normal)
             {
-                App.Current.MainWindow.WindowState = WindowState.Maximized;
+                Application.Current.MainWindow.WindowState = WindowState.Maximized;
             }
         }
 
         private void Rectangle_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            App.Current.MainWindow.DragMove();
+            Application.Current.MainWindow.DragMove();
         }
 
         private void Button_maximize_Click(object sender, RoutedEventArgs e)
@@ -170,7 +174,7 @@ namespace ProcessTodo
 
         private void Button_minimize_Click(object sender, RoutedEventArgs e)
         {
-            App.Current.MainWindow.WindowState = WindowState.Minimized;
+            Application.Current.MainWindow.WindowState = WindowState.Minimized;
         }
 
         private void Rectangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
