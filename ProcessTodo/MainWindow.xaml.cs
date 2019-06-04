@@ -13,8 +13,6 @@ namespace ToDoListHandler
     /// Interaktionslogik für MainWindow.xaml
     /// </summary>
     ///
-
-    //TODO: Scale all UI elements up
     //TODO: Better embedding in Process Window Host
     //TODO: Auto Terminate when host closes
     //TODO: Auditpol handling still ugly as hell
@@ -69,7 +67,6 @@ namespace ToDoListHandler
 
         private void Button_reg_new_process_Click(object sender, RoutedEventArgs e)
         {
-            //TODO: implement, einschalten der prozessüberwachung als GUI.
             OpenFileDialog dlg = new OpenFileDialog();
 
             // Set filter for file extension and default file extension
