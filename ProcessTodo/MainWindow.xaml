@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ToDoListHandler"
         mc:Ignorable="d"
-        Title="Process Todo" Height="693.834" Width="615.167" FontFamily="Century Gothic" MinWidth="425" MinHeight="380" WindowStyle="None" Style="{DynamicResource WindowStyle_Dark}">
+        Title="Process Todo" Height="159" Width="41" FontFamily="Century Gothic" MinWidth="590" MinHeight="380" WindowStyle="None" Style="{DynamicResource WindowStyle_Dark}">
 
     <WindowChrome.WindowChrome>
         <WindowChrome
@@ -37,9 +37,9 @@
 
         <ListBox x:Name="listBox_Tasks" Margin="10,76.427,10,53.322" Style="{DynamicResource ListBoxStyle_Dark}" />
 
-        <Button x:Name="button_reg_new_process" Content="Register New Process" Margin="10,0,0,10" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="197.333" Click="Button_reg_new_process_Click" Style="{DynamicResource ButtonStyle_Dark}" FontSize="18" Height="38.322" />
-        <Button x:Name="button_show_todo_list" Content="Show Todo-List" Margin="212.333,0,165,10" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" Click="Button_showTodoList_Click" Style="{DynamicResource ButtonStyle_Dark}" FontSize="18" Height="38.322" />
-        <Button x:Name="button_delete_selected" Content="Delete Selected" Margin="0,0,10,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="150" Click="Button_delete_selected_Click" Style="{DynamicResource ButtonStyle_Dark}" FontSize="18" Height="38.322" />
+        <Button x:Name="button_reg_new_process" Content="Register New Process" Margin="10,0,0,10" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="200" Click="Button_reg_new_process_Click" Style="{DynamicResource ButtonStyle_Dark}" FontSize="18" Height="38.322" />
+        <Button x:Name="button_show_todo_list" Content="Show Todo-List" Margin="215,0,215,10" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" Click="Button_showTodoList_Click" Style="{DynamicResource ButtonStyle_Dark}" FontSize="18" Height="38" />
+        <Button x:Name="button_delete_selected" Content="Delete Selected" Margin="0,0,10,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="200" Click="Button_delete_selected_Click" Style="{DynamicResource ButtonStyle_Dark}" FontSize="18" Height="38" />
 
     </Grid>
 </Window>

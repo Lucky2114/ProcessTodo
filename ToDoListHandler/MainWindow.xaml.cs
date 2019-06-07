@@ -1,10 +1,10 @@
-﻿using ToDoListHandler.Classes;
-using ToDoListHandler.Classes.Objects;
-using System;
+﻿using System;
 using System.IO;
 using System.Linq;
 using System.Windows;
+using ToDoListHandler.Classes;
 using ToDoListHandler.Classes.JSON;
+using ToDoListHandler.Classes.Objects;
 
 namespace ToDoListHandler
 {
@@ -20,6 +20,8 @@ namespace ToDoListHandler
 
         private readonly string XamlPath;
 
+        private readonly TodoList TodoList;
+
         public MainWindow()
         {
             try
@@ -30,11 +32,13 @@ namespace ToDoListHandler
 
             InitializeComponent();
 
+            this.TodoList = GetTodoListFromJson();
+
             this.XamlPath = FindOrCreateXamlfile();
             this.data_Handler = new Data_handler();
             this.data_UserInterface = new Data_userInterface(rich_textbox_1, this.XamlPath);
 
-            label_todoList_title.Content = callingProcessId;
+            label_todoList_title.Content = TodoList?.DisplayName;
 
             UpdateGrid();
         }
@@ -46,27 +50,34 @@ namespace ToDoListHandler
 
         private void SaveGrid()
         {
-            TodoListClass todoListClass = new TodoListClass();
-            todoListClass.document = rich_textbox_1.Document;
+            TodoListClass todoListClass = new TodoListClass
+            {
+                Document = rich_textbox_1.Document
+            };
             data_Handler.SaveXamlObject(todoListClass, this.XamlPath);
+        }
+
+        private TodoList GetTodoListFromJson()
+        {
+            return TodoListManager.FindTodoListFromJson(callingProcessId);
         }
 
         private string FindOrCreateXamlfile()
         {
-            TodoList todoList = TodoListManager.FindTodoListFromJson(callingProcessId);
-            if (todoList != null)
+            if (TodoList != null)
             {
-                if (!File.Exists(todoList.XamlFilePath))
-                    File.Create(todoList.XamlFilePath);
-                return todoList.XamlFilePath;
+                if (!File.Exists(TodoList.XamlFilePath))
+                    File.Create(TodoList.XamlFilePath).Close();
+                return TodoList.XamlFilePath;
             }
             else return "";
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Save_Click(object sender, RoutedEventArgs e)
         {
             SaveGrid();
         }
+
         private void Rectangle_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             try
@@ -78,7 +89,6 @@ namespace ToDoListHandler
                 //Rechte Maustaste
             }
         }
-
 
         private void Switch_window_size()
         {
@@ -115,10 +125,8 @@ namespace ToDoListHandler
 
         private void Rectangle_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-
             if (e.ClickCount == 2)
                 Switch_window_size();
-
         }
     }
 }

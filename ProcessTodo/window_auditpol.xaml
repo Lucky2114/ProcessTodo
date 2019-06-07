@@ -5,30 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ToDoListHandler"
         mc:Ignorable="d"
-        Title="Audit Policy" Height="258" Width="232" Background="#FF1E1E1E" FontFamily="Century Gothic" MinWidth="425" MinHeight="380" WindowStyle="None">
+        Title="Audit Policy" Height="258" Width="232" FontFamily="Century Gothic" MinWidth="425" MinHeight="380" WindowStyle="None" Style="{DynamicResource WindowStyle_Dark}">
 
     <WindowChrome.WindowChrome>
-        <WindowChrome 
+        <WindowChrome
         CaptionHeight="0"
         ResizeBorderThickness="5" />
     </WindowChrome.WindowChrome>
 
     <Grid>
-        <Grid Height="24" VerticalAlignment="Top">
-            <Rectangle Fill="#FF161616" Height="24" Stroke="#FF161616" VerticalAlignment="Top" MouseDown="Rectangle_MouseDown" MouseLeftButtonDown="Rectangle_MouseLeftButtonDown"/>
-            <Button x:Name="button_close" Content="&#xA;" HorizontalAlignment="Right" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="24" Style="{DynamicResource ButtonStyle_Close}" Click="button_close_Click_1">
-                <Button.Background>
-                    <ImageBrush ImageSource="Content/buttonClose_transparent2.png" Stretch="None"/>
-                </Button.Background>
-            </Button>
-            <Button x:Name="button_minimize" Content="&#xA;" HorizontalAlignment="Right" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="24" Margin="0,0,24,0" Tag="test123" Style="{DynamicResource ButtonStyle_min_max}" Click="button_minimize_Click_1">
-                <Button.Background>
-                    <ImageBrush ImageSource="Content/buttonMin.png" Stretch="None"/>
-                </Button.Background>
-            </Button>
-        </Grid>
-        <TextBlock Margin="0,29,5,0" VerticalAlignment="Top" Height="309" Foreground="White" TextWrapping="WrapWithOverflow" TextAlignment="Center" FontSize="18"><Run Text="It looks like you haven't enabled the &quot;Aduit Process Tracking Policy&quot;. You need to enable it, so windows logs process creation and termination events. Based on that, this programm knows when a registered programm is opened and it can open the according Todo-List."/><LineBreak/><Run/><LineBreak/><Run Text="But don't worry! Just press the button below to enable it!"/></TextBlock>
-        <Button x:Name="button_enable_auditpol" Content="Enable Aduit Tracking Policy" Margin="10,324,10,0" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="White" Foreground="White" Style="{DynamicResource ButtonStyle_Flat_Dark}" Height="38" FontSize="18" Click="button_enable_auditpol_Click"/>
-
+        <TextBlock Margin="10,10,10,0" VerticalAlignment="Top" Height="309" TextWrapping="WrapWithOverflow" TextAlignment="Center" FontSize="18" Style="{DynamicResource TextBlockStyle_Dark}"><Run Text="It looks like you haven't enabled the &quot;A"/><Run Text="ud"/><Run Text="it Process Tracking Policy&quot;. You need to enable it, so windows logs process creation and termination events. Based on that, this program knows when a registered program is opened and it can open the according Todo-List."/><LineBreak/><Run/><LineBreak/><Run Text="But don't worry! Just press the button below to enable it!"/></TextBlock>
+        <Button x:Name="button_enable_auditpol" Content="Enable Aduit Tracking Policy" Margin="10,324,10,0" VerticalAlignment="Top" Style="{DynamicResource ButtonStyle_Dark}" Height="38" FontSize="18" Click="button_enable_auditpol_Click" />
     </Grid>
 </Window>

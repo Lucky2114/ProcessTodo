@@ -6,6 +6,6 @@ namespace ToDoListHandler.Classes.JSON
     [Serializable()]
     public class TodoListClass
     {
-        public FlowDocument document { get; set; }
+        public FlowDocument Document { get; set; }
     }
 }

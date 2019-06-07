@@ -18,7 +18,7 @@ namespace ToDoListHandler.Classes
         {
             try
             {
-                richTextBox.Document = data_Handler.GetXmlObject(this.xamlPath).document;
+                richTextBox.Document = data_Handler.GetXmlObject(this.xamlPath).Document;
             }
             catch
             {

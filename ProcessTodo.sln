@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessTodo", "ProcessTodo\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoListHandler", "ToDoListHandler\ToDoListHandler.csproj", "{9D4FD77B-78C3-439C-B6CC-8F14700DD9D4}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ProcessTodo-Setup", "ProcessTodo-Setup\ProcessTodo-Setup.vdproj", "{2BB134B2-5257-4061-8C39-CAB3228C56F0}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ProcessTodo-Setup", "ProcessTodo-Setup\ProcessTodo-Setup.vdproj", "{DA795E98-01F1-445B-B5A9-8E760633DB98}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,18 +43,12 @@ Global
 		{9D4FD77B-78C3-439C-B6CC-8F14700DD9D4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9D4FD77B-78C3-439C-B6CC-8F14700DD9D4}.Release|x86.ActiveCfg = Release|Any CPU
 		{9D4FD77B-78C3-439C-B6CC-8F14700DD9D4}.Release|x86.Build.0 = Release|Any CPU
-		{2BB134B2-5257-4061-8C39-CAB3228C56F0}.All|Any CPU.ActiveCfg = Release
-		{2BB134B2-5257-4061-8C39-CAB3228C56F0}.All|Any CPU.Build.0 = Release
-		{2BB134B2-5257-4061-8C39-CAB3228C56F0}.All|x86.ActiveCfg = Release
-		{2BB134B2-5257-4061-8C39-CAB3228C56F0}.All|x86.Build.0 = Release
-		{2BB134B2-5257-4061-8C39-CAB3228C56F0}.Debug|Any CPU.ActiveCfg = Debug
-		{2BB134B2-5257-4061-8C39-CAB3228C56F0}.Debug|Any CPU.Build.0 = Debug
-		{2BB134B2-5257-4061-8C39-CAB3228C56F0}.Debug|x86.ActiveCfg = Debug
-		{2BB134B2-5257-4061-8C39-CAB3228C56F0}.Debug|x86.Build.0 = Debug
-		{2BB134B2-5257-4061-8C39-CAB3228C56F0}.Release|Any CPU.ActiveCfg = Release
-		{2BB134B2-5257-4061-8C39-CAB3228C56F0}.Release|Any CPU.Build.0 = Release
-		{2BB134B2-5257-4061-8C39-CAB3228C56F0}.Release|x86.ActiveCfg = Release
-		{2BB134B2-5257-4061-8C39-CAB3228C56F0}.Release|x86.Build.0 = Release
+		{DA795E98-01F1-445B-B5A9-8E760633DB98}.All|Any CPU.ActiveCfg = Release
+		{DA795E98-01F1-445B-B5A9-8E760633DB98}.All|x86.ActiveCfg = Release
+		{DA795E98-01F1-445B-B5A9-8E760633DB98}.Debug|Any CPU.ActiveCfg = Debug
+		{DA795E98-01F1-445B-B5A9-8E760633DB98}.Debug|x86.ActiveCfg = Debug
+		{DA795E98-01F1-445B-B5A9-8E760633DB98}.Release|Any CPU.ActiveCfg = Release
+		{DA795E98-01F1-445B-B5A9-8E760633DB98}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

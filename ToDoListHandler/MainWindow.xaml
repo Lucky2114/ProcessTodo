@@ -14,8 +14,8 @@
     <Grid>
 
 
-        <Button Content="Save" Margin="10,0,10,10" RenderTransformOrigin="0.933,0.526" Click="Button_Click" VerticalAlignment="Bottom" Style="{DynamicResource ButtonStyle_Dark}" FontSize="18"/>
-        <Label x:Name="label_todoList_title" Content="Calling Process" HorizontalAlignment="Left" Margin="10,29,0,0" VerticalAlignment="Top" Style="{DynamicResource LabelStyle_Dark}" FontSize="24"/>
+        <Button x:Name="button_save" Content="Save" Margin="10,0,10,10" RenderTransformOrigin="0.933,0.526" Click="Button_Save_Click" VerticalAlignment="Bottom" Style="{DynamicResource ButtonStyle_Dark}" FontSize="18"/>
+        <Label x:Name="label_todoList_title" Content="Calling Process" HorizontalAlignment="Left" Margin="10,29,0,0" VerticalAlignment="Top" Style="{DynamicResource LabelStyle_Dark}" FontSize="18"/>
         <Grid Height="24" VerticalAlignment="Top">
             <Rectangle Fill="{StaticResource Window.Static.TopBar}" Height="24" VerticalAlignment="Top" MouseDown="Rectangle_MouseDown" MouseLeftButtonDown="Rectangle_MouseLeftButtonDown" />
             <Button x:Name="button_close" Content="&#xD;&#xA;" HorizontalAlignment="Right" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="24" Click="Button_close_Click" Style="{DynamicResource ButtonStyle_DarkNoText}">
@@ -35,7 +35,7 @@
             </Button>
         </Grid>
 
-        <RichTextBox x:Name="rich_textbox_1" Margin="10,73.427,10,41.07" Style="{DynamicResource RichTextBoxStyle_Dark}" FontSize="18">
+        <RichTextBox x:Name="rich_textbox_1" Margin="10,66,10,41" Style="{DynamicResource RichTextBoxStyle_Dark}" FontSize="18">
             <FlowDocument>
                 <Paragraph>
                     <Run Text=""/>
