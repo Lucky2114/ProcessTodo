@@ -24,7 +24,13 @@ namespace ToDoListHandler.Classes
         public void SaveXamlObject(TodoListClass obj, string XamlPath)
         {
             string xml = XamlWriter.Save(obj);
-            File.WriteAllText(XamlPath, xml);
+            try
+            {
+                File.WriteAllText(XamlPath, xml);
+            } catch
+            {
+                //Ignored
+            }
         }
     }
 }

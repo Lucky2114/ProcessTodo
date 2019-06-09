@@ -110,7 +110,7 @@ namespace ToDoListHandler
         private void Button_close_Click(object sender, RoutedEventArgs e)
         {
             SaveGrid();
-            Environment.Exit(1);
+            Environment.Exit(0);
         }
 
         private void Button_minimize_Click(object sender, RoutedEventArgs e)

@@ -78,7 +78,7 @@ namespace ToDoListHandler
             if (result == true)
             {
                 string processToRegister = dlg.FileName;
-                string taskName = "[PTD]__" + processToRegister.Replace("\\", "_").Replace(":", "_");
+                string taskName = "[PTD]__" + processToRegister.Replace("\\", "_").Replace(":", "_").Replace(" ", "_");
                 string xamlPath = Constants.todoListDataFolder + taskName + ".xaml";
                 string processId = taskName + new Random().Next();
                 TodoList todoList = new TodoList()
